@@ -1,27 +1,47 @@
 
 #Reference-free identification of genomic regions carrying a causal mutation.
 
-###Abstract
-###Background
+##Abstract
+##Background
 - NGS useful for mappping mutations.
 - Forward genetic screens.
 - Current available SNP/Variant calling methods for forward genetics experiments: NGM, Shoremap, CandiSNP, MutMap... Advantages and limitations
 - Need for reference-free method. 
 - Brief explnation of SDM. Why Arabidopsis is a great genomic model. 
-- Oportunities for the future.
 
-###Results
+##Results
+
 ######Homozygous SNPs in forward genetics screens are normally distributed around the causative mutation
+Arabidopsis screens (and approach used to identify the mutation)
 
-######Arabidopsis thaliana chromosome I and the expected SNP distributions used as a model to test the algorithm
+1. mob1/mob2 (candiSNP)
+2. OCF2 (Shoremap)
+3. BCF2 (NGM, Shoremap, Samtools, GATK)
+4. sup#1 (-)
 
-######A pre-filtering step based on the homozygous to heterozygous SNPs ratio is crucial to define the contigs surrounding the mutation. 
- 
-######Filtering non-unique SNPs in the mutants reduces complexity and improves SDM accuracy
+qqplots
 
-######SDM succesfully identifies the genomic region carrying the causative mutation using real SNP densities 
+######SDM modelling using Arabidopsis thaliana chromosome I and ideal SNP densities
+SDM workflow
 
+######SDM accuracy improvement by filtering background SNPs 
+Parental VCF
 
-###Discussion
+Centromere
 
-###Methods
+######Mutant identification using SDM
+Pre-filtering step based on the homozygous to heterozygous SNPs ratio is crucial to define the contigs surrounding the mutation. 
+
+Pipeline
+
+Results
+
+######SDM performance and comparison to other methods
+
+##Discussion
+- backcross vs outcross experiments
+- Robustness with respect to location of mutation
+- Comparison to other methods. Advantages and future perspectives
+
+##Methods
+

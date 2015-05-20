@@ -5,9 +5,9 @@
 ##Background
 - NGS useful for mappping mutations.
 - Forward genetic screens.
-- Current available SNP/Variant calling methods for forward genetics experiments: NGM, Shoremap, CandiSNP, MutMap... Advantages and limitations
-- Need for reference-free method. 
-- Brief explnation of SDM. Why Arabidopsis is a great genomic model. 
+- SNP/Variant calling methods require a reference genome: NGM, SHOREmap, CandiSNP, MutMap... Advantages and limitations
+- Reference-free methods. NIKS, De Bruijn graphs. Limitations
+- Brief explanation of SDM. 
 
 ##Results
 
@@ -40,8 +40,6 @@ Results
 
 ##Discussion
 - backcross vs outcross experiments
-- Robustness with respect to location of mutation
-- Comparison to other methods. Advantages and future perspectives
+- Advantages and future perspectives
 
-##Methods
 

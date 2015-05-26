@@ -1,10 +1,6 @@
 **Figure 1.**  A) Ideal hm and ht distribution, normal and uniform. B) Model genome C) formula to calculate ratio
 
-![equation](http://www.sciweavers.org/tex2img.php?eq=Ratio=\frac{Hom%2B1}{het%2B1}&bc=White&fc=Black&im=jpg&fs=9&ff=arev&edit=0)
-
 **Figure 2.** A) Formula to calculate deviation B) Bar chart for deviation 5-15 C) Bar chart for 30 Mb
-
-![img](http://www.sciweavers.org/tex2img.php?eq=Deviation%20%3D%20%20%5Cfrac%7B%20%20%7C%20candidate-causal%20%7C%20%20%7D%7BLength%7Dx100&bc=White&fc=Black&im=jpg&fs=9&ff=arev&edit=0)
 
 **Figure 3.** Using ratio as threshold
 
@@ -81,7 +77,7 @@ Centromere
 Figure 5. A SDM pipeline
 
 
-######4. SDM performance and comparison to other methods
+######4. SDM identified the genomic region carrying the causal mutation previously found with other methods
  
 Comparison of results obtained with SDM and the methods they used to find the mutation in the original study. 
 Speed

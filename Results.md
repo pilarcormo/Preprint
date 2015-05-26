@@ -15,7 +15,7 @@ Additional:
 - Effect of different factors on ratio
 
 
-######1. SDM assess the high SNP density peak with a negligible deviation from the expected  peak when using Arabidopsis chromosome I and ideallized SNP densities as a model (839 words)
+######1. SDM detects the high SNP density peak with a negligible deviation from the expected  peak when using Arabidopsis chromosome I and ideallized SNP densities as a model (839 words)
 
 To develop our method to identify an experimentally induced causal mutation, we create different model genomes based on _Arabidopsis thaliana_ chromosome I (34.9 Mb). We tested different parameters that could have a potential effect on SDM performance: genome length, contig size, homozygous SNP density, heterozygous SNP density, way of calculating the homozygous to heterozygous ratio and location of the causal mutation.  
 

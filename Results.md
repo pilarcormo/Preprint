@@ -1,24 +1,29 @@
-**Figure 1.**  A) Model genome B) formula to calculate ratio
+Results and discussion
+===
 
-**Figure 2.** A) Formula to calculate deviation B) Bar chart for deviation 5-15 C) Bar chart for 30 Mb
+**Table 1** r square, SD, kurtosis
 
-**Figure 3.** Using ratio as threshold
+**Table 2** Table candidate mutations 
 
-**Figure 4.** A) Pipeline follow for real datasets B) Overlapping densities C) QQplots
+**Figure 1**  A) Model genome B) formula to calculate ratio
 
-**Table 1.** r square, SD, kurtosis
+**Figure 2** A) Formula to calculate deviation B) Bar chart for deviation 5-15 C) Bar chart for 30 Mb
 
-**Figure 5.** Pipeline for SDM  
+**Figure 3** Using ratio as threshold
+
+**Figure 4** A) Pipeline follow for real datasets B) Overlapping densities C) QQplots
+
+
+**Figure 5** Pipeline for SDM  
 
 **Figure 6** Results when using SDM with real SNP densities A) QQ-plots B) Ratios
+
 
 **Additional file 1**. Effect of different factors on ratio
 
 **Additional file 2**. figure comparing plotting before and after removing the background SNPs and the centromere. 
 
 **Additional file 3** Overlapping density plots after SDM
-
-Possible table - fragments identified by SDM and mutations positions. 
 
 ######1. SDM design and modelling using Arabidopsis chromosome I and ideallized SNP densities (344)
 
@@ -68,17 +73,17 @@ We also analysed the shape of the distributions by measuring the kurtosis (**Tab
 
 
 <table>
-  <tr><th>Sample <th>Number of homozygous SNPs</th><th>Chromosome</th><th>Correlation with normal distribution (r<sup>2</sup>)</th><th>Standard deviation (Mb)</th><th>Kurtosis</th><th>Skewness</th>
+  <tr><th>Sample <th>Number of homozygous SNPs</th><th>Chromosome</th><th>Correlation with normal distribution (r<sup>2</sup>)</th><th>Standard deviation (Mb)</th><th>Kurtosis</th><th>Skewness</th></tr>
   
-  <tr><th> OCF2</th> <th>151</th> <th>2</th><th>0.949<th>6.01</th><th>1.85</th><th>-0.392</th>
+  <tr><td> OCF2</th> <td>151</th> <td>2</th><td>0.949<td>6.01</th><td>1.85</th><td>-0.392</th>
   
-  <tr><th> BCF2</th>  <th>15</th><th>3</th><th>0.959<th>3.20</th><th>2.02</th><th>0.201</th>
+  <tr><td> BCF2</th>  <td>15</th><td>3</th><td>0.959<td>3.20</th><td>2.02</th><td>0.201</th>
   
-  <tr><th> bak1-5 mob1</th>  <th>25</th><th> 5</th><th>0.944<th>7.20 </th><th>2.69</th><th>-0.240</th>
+  <tr><td> bak1-5 mob1</td>  <td>25</th><td> 5</th><td>0.944<td>7.20 </th><td>2.69</th><td>-0.240</th>
   
-  <tr><th>bak1-5 mob2 </th> <th>41</th> <th> 5</th><th>0.894<th>3.71</th><th>2.37</th><th>0.445</th>  
+  <tr><td>bak1-5 mob2 </td> <td>41</th> <td> 5</th><td>0.894<td>3.71</th><td>2.37</th><td>0.445</th>  
    
-  <tr><th> sup#1</th>  <th>4633</th><th>4</th><th>0.976<th>3.66</th><th>3.50</th><th>0.370</th>
+  <tr><td> sup#1</th>  <td>4633</th><td>4</th><td>0.976<td>3.66</th><td>3.50</th><td>0.370</th>
   
 </table>
 
@@ -92,15 +97,17 @@ Also, SDM accuracy was improved when the we removed SNPs concentrated around cen
 
 ######7. SDM identified the genomic region carrying the causal mutation previously found with other methods
 
-As a final proof-of-concept, we used the SNP densities obtained from OCF2, BCF2, mob1-mob2 and sup#1 datasets (**Fig. 4A**) to create new model genomes. Again, we took the chromosomes where the mutations were described and split them into fragments of minimum size 100 kb (contig size ranges between 100 and 200 kb). The model genomes were created in the same way as explained above, but instead of using an idealised SNP density, we used the real SNP positions after parental filtering and removal of the centromeres. SDM generates several output files: a FASTA file with the ordered fragments, a Q-Qplot comparing the correlation between the homozygous SNP distribution after SDM and a the expected normal distribution (**Fig 6A**), a density plot with the hypothetical homozygous, heterozygous SNP densities and ratios (**Additional file**), a text file with the candidate contigs with the SNP positions they contain. As we know the correct order and the real ratio distribution, to test the performance of SDM, we create a plot comparing the hypothetical ratio distribution after SDM and the real one (Fig. 6B). 
+As a final proof-of-concept, we used the SNP densities obtained from OCF2, BCF2, mob1-mob2 and sup#1 datasets (**Fig. 4A**) to create new model genomes. Again, we took the chromosomes where the mutations were described and split them into fragments of minimum size 100 kb (contig size ranges between 100 and 200 kb). The model genomes were created in the same way as explained above, but instead of using an idealised SNP density, we used the real SNP positions after parental filtering and removal of the centromeres. SDM generates several output files: a FASTA file with the ordered fragments, a Q-Qplot comparing the correlation between the homozygous SNP distribution after SDM and a the expected normal distribution (**Fig 6A**), a density plot with the hypothetical homozygous, heterozygous SNP densities and ratios (**Additional file**), a text file with the candidate contigs with the SNP positions they contain. As we know the correct order and the real ratio distribution, to test the performance of SDM, we create a plot comparing the hypothetical ratio distribution after SDM and the real one (**Fig. 6B**). 
 
+In our case studies, the causal mutation estimation by SDM was more accurate in back-crosses (bak1-5 mutants and BCF2) than in out-crosses (OCF2 and sup#1). The number of segregating SNPs is lower in back-cross experiments (1 SNP every 65,000 bp)  compared to out-crosses (1 SNP every 900 bp) [@Etherington:2014]. Therefore, SDM was an easy way to perform bulk segregant linkage analysis from a back-crossed population without relying on the disponibility of a reference genome.
 
+The large number of segregating SNPs in out-crosses complicate the assignation of a position in the normal distribution to a contig. For example, is more than 10 contigs contain 4 SNPs, there is no reliable way to discriminate between them by our approach. 
+
+- Next:
  
 Comparison of results obtained with SDM and the methods they used to find the mutation in the original study. 
 Speed
 Usefulness
 Improvement
-
-Figure 6.
 
 Ways of calculating the ratios (Additional result)

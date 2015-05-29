@@ -1,4 +1,5 @@
-#Reference-free identification of genomic regions carrying a causal mutation.
+
+#Identification of genomic regions carrying a causal mutation in unordered genomes.
 #####*Pilar Corredor-Moreno*
 
 Whole genome sequencing using Next-Generation Sequencing (NGS) technologies offers a unique opportunity to study genetic variations. However, mapping the mutations responsible for phenotypes is generally a tedious and time-consuming process. In the last few years, researchers have developed user-friendly tools for mapping-by-sequencing, yet they are not applicable to organisms with non-sequenced genomes.

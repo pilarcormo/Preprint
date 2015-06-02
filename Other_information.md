@@ -20,7 +20,17 @@ The development of de novo assembly technologies based on PacBio or Illumina lon
 ![](http://www.sciweavers.org/tex2img.php?eq=Deviation%20%3D%20%20%5Cfrac%7B%20%20%7C%20candidate-causal%20%7C%20%20%7D%7BLength%7Dx100&bc=White&fc=Black&im=jpg&fs=9&ff=arev&edit=0)
 
 
-
+<table>
+  <tr><th>Method <th>Reference genome required?</th><th>Number of total SNPs used as markers</th><th>Number of F2 progeny used for bulking</th><th>Example</th><th>Reference</th>
+    <tr><th>SDM <th>No</th><th>Number of total SNPs used as markers</th><th>Number of F2 progeny used for bulking</th><th>Example</th><th>Reference</th>
+      <tr><th>NIKS <th>No</th><th>Number of total SNPs used as markers</th><th>Number of F2 progeny used for bulking</th><th>Example</th><th>Reference</th>
+        <tr><th>CandiSNP <th>Yes</th><th>Number of total SNPs used as markers</th><th>Number of F2 progeny used for bulking</th><th>Example</th><th>Reference</th>
+          <tr><th>MutMap <th>Yes</th><th>Number of total SNPs used as markers</th><th>Number of F2 progeny used for bulking</th><th>Example</th><th>Reference</th>
+            <tr><th>NGM <th>Yes</th><th>Number of total SNPs used as markers</th><th>Number of F2 progeny used for bulking</th><th>Example</th><th>Reference</th>
+            <tr><th>SHOREmap <th>Yes</th><th>Number of total SNPs used as markers</th><th>Number of F2 progeny used for bulking</th><th>Example</th><th>Reference</th>
+    
+  
+</table>
 
 
 

@@ -23,9 +23,9 @@ Results and discussion
 
 **Additional file 2**. Effect of different factors on ratio
 
-**Additional file 3**. figure comparing plotting before and after removing the background SNPs and the centromere. 
+**Additional file 3**. Comparison of density plots before and after removing the background SNPs and the centromere. 
 
-**Additional file 4** Overlapping density plots after SDM
+**Additional file 4** Density plots after SDM
 
 ######1. SDM design and modelling using Arabidopsis chromosome I and ideallized SNP densities (344)
 

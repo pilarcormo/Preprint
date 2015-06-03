@@ -1,4 +1,4 @@
-Abstract.md
+[Abstract.md](https://github.com/pilarcormo/Preprint/blob/master/Abstract.md)
 
 #Identification of genomic regions carrying a causal mutation in unordered genomes.
 
@@ -8,7 +8,7 @@ We introduced SDM (SNP Distribution Method), a reference independent method for 
 
 First, to emulate real data, we created model genomes with the expected SNP density based on *Arabidopsis thaliana* chromosome I. We split it into fragments that imitate contigs assembled from NGS reads. SDM groups the contigs by their normalised homozygous SNP density and then arranges them so that they follow the expected SNP distribution. Then, as a proof-of-concept, we analysed the SNP distribution in recent out-cross [@Galvão et al. 2012], [@Uchida et al. 2014] and back-cross experiments [@Allen et al. 2013], [@Monaghan et al. 2014] in *Arabidopsis thaliana* backgrounds. In all the examples we analysed, homozygous SNPs were normally distributed around the causal mutation. We used the real SNP densities obtained from these experiments to prove the efficiency and accuracy of SDM. It succeed in the identification of the genomic regions (10-100 kb) containing the causative mutations. We now aim to apply this method in a species without a reference genome available.
 
-Background.md
+[Background.md](https://github.com/pilarcormo/Preprint/blob/master/Background.md)
 
 Background 
 ===
@@ -25,8 +25,8 @@ Here we propose a fast mutant identification method based on a simple reference-
 
 We recently selected different datasets from previous studies in which a mutated gene was identified in a out-cross or back-cross population [@Galvao:2012], [@Allen:2013], [@Monaghan:2014], [@Uchida:2014]. These studies confirmed by different methods the gene responsible for the mutant phenotype so they were a good starting point to avoid taking shots in the dark. SDM was proven to be fast and accurate and opens up many possibilities for forward genetic screens in those species for which a reference sequence is not available. 
 
+[Methods.md](https://github.com/pilarcormo/Preprint/blob/master/Methods.md)
 
-Methods.md
 Methods
 ===
 
@@ -50,7 +50,7 @@ Density plots, QQplots and histograms were built as described in the R (v3.1.1) 
 
 We used Kernel Density Estimation in R [@R_language] to identify the high homozygous SNP density areas in the chromosomes. Then, to test the correlation between the SNP distributions and a normal distribution we used the qqplot function available in R. We measured the kurtosis and skewness of the SNP distributions by using the package 'moments' [@momentsR].
 
- Results.md
+[Results.md](https://github.com/pilarcormo/Preprint/blob/master/Results.md)
 Results and discussion
 ===
 

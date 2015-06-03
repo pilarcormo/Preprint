@@ -77,21 +77,21 @@ We filtered the background SNPs to reduce the complexity of the SNP lists and im
 
 Also, SDM accuracy was improved when the we removed SNPs concentrated around centromeres. It was easy in this case since we were using *Arabidopsis thaliana* as a model organism and centromeres are defined in the genome assembly. However, for the long-term goal of the methodology proposed, we still have to develop some way to identify the variability due to the centromere. Many studies have shown the peculiarity of the centromere, so these sequences should be easy to identify. Centromeres are  characterised by  the presence of tandem repeats, and extremely high repeat abundance (often >10,000 copies per chromosome) [@Melters:2013aa].
 
-######7. SDM identifies the genomic region carrying the causal mutation previously found with other methods
+######7. SDM identifies the genomic region carrying the causal mutation previously described by other methods
 
 As a final proof-of-concept, we used the SNP densities obtained from OCF2, BCF2, mob1-mob2 and sup#1 datasets to create new model genomes. Again, we took the chromosomes where the mutations were described and split them into fragments of minimum size 100 kb (contig size ranges between 100 and 200 kb). The model genomes were created in the same way as explained above, but instead of using an idealised SNP density, we used the real SNP positions after parental filtering and centromere removal. SDM generates several output files: 
 
-i. FASTA file with the hypothetical fragment order
-i. Q-Qplot comparing the correlation between the homozygous SNP distribution after SDM and a the expected normal distribution (**Fig. 6A**)
-i. Density plot with the hypothetical homozygous and  heterozygous SNP densities and ratios (**Additional 4**)
-i. Density plot to analyse the deviation of the hypothetical ratios after SDM from the theoretical expected ratios (**Fig. 6B**)
-i. Text file with the candidate contigs and the SNP positions they contain. 
+a. FASTA file with the hypothetical fragment order
+b. Q-Qplot comparing the correlation between the homozygous SNP distribution after SDM and a the expected normal distribution (**Fig. 6A**)
+c. Density plot with the hypothetical homozygous and  heterozygous SNP densities and ratios (**Additional 4**)
+d. Density plot to analyse the deviation of the hypothetical ratios after SDM from the theoretical expected ratios (**Fig. 6B**)
+e. Text file with the candidate contigs and the SNP positions they contain. 
 
 We regained the normal distribution for all the datasets after shuffling the contig order and running SDM on them (**Fig. 6A**). The correct contig order and real ratio distribution are known, so we created a plot comparing the hypothetical ratio distribution after SDM and the real one to test the performance of SDM (**Fig. 6B**). 
 
 In our case studies, the causal mutation estimation by SDM was more accurate in back-crosses (bak1-5 mutants and BCF2) than in out-crosses (OCF2 and sup#1). The number of segregating SNPs is lower in back-cross experiments (1 SNP every 65,000 bp)  compared to out-crosses (1 SNP every 900 bp) [@Etherington:2014]. The large number of segregating SNPs in out-crosses complicated the assignation of a position in the normal distribution to a contig. For example, if more than 2 contigs contain 4 SNPs, there is no reliable way to discriminate between them and the problem gets worse when the number of contigs with the same number of SNPs increases. Hence, we added a feature to SDM to specify the type of cross before defining the candidate mutations. 
 
-As expected, the approximation to the causal mutation is more accurate in back-cross experiments and the number of candidates oscillates between 4 and 10 (**Table 2**). In our two out-cross examples the number of homozygous SNPs differs; SDM identified the causal mutation position in OCF2 (**Table 2**) even though the number of candidates was greater compared to the back-crosses. However, more than 100 candidate mutations out of several thousand SNPs were proposed for sup#1 in a very small region of the chromosome (100 kb) and the actual causal SNP was not in that list (**Table 2**). Therefore, out-crosses to a reference line would need more filtering steps to reduce the number of SNPs at the starting point as they did in the original report [Uchida:2014]. We can conclude that SDM is a rapid and accurate method to perform bulk segregant linkage analysis from a back-crossed population without relying on the disponibility of a reference genome, but we need to be cautious when dealing with out-cross experiments.  
+As expected, the approximation to the causal mutation is more accurate in back-cross experiments and the number of candidates oscillates between 4 and 10 (**Table 2**). In our two out-cross examples the number of homozygous SNPs differs; SDM identified the causal mutation position in OCF2 (**Table 2**) even though the number of candidates was greater compared to the back-crosses. However, more than 100 candidate mutations out of several thousand SNPs were proposed for sup#1 in a very small region of the chromosome (100 kb) and the actual causal SNP was not in that list (**Table 2**). Therefore, out-crosses to a reference line would need more filtering steps to reduce the number of SNPs at the starting point as they did in the original report [Uchida:2014]. We can conclude that SDM is a rapid and precise method to perform bulk segregant linkage analysis from back-crossed populations without relying on the disponibility of a reference genome, but we need to be cautious when dealing with out-cross experiments.  
 
 
 Conclusions

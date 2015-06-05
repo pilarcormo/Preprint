@@ -172,7 +172,7 @@ Forward genetic screens are very useful to identify genes responsible for partic
 ![](Fig4/qqplotsmall.png)
 
 **Figure 5**
-![](Fig5/pipeline.png)
+![](Fig5/pipeline2.png)
 
 **Figure 6**
 ![](Fig6/ratiossdm2.png)

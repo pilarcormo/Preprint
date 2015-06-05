@@ -144,68 +144,63 @@ Conclusions
 Forward genetic screens are very useful to identify genes responsible for particular phenotypes. Thanks to the advances in HTS technologies, mutant genomes sequencing has become quick and unexpensive. However, the mapping-by-sequencing methods available present certain limitations, complicating the mutation identification especially in non-sequenced species. To target this problem, we proposed a fast, reference genome independent method to identify causative mutations. We showed that homozygous SNPs are normally distributed in the mutant genome of back-cross and out-crossed individuals. Based on that idea, we defined a theoretical SNP distribution used by SDM to identify the genomic region where the causative mutation was located. We conclude that SDM is especially sucessful for analysing mutants obtained from a back-cross population. The increase in the number of SNPs in out-cross experiments complicated the genetic analysis and the mutation estimation. Ideally, over the next few years, sequencing costs will decrease and this will allow to sequence every mutant individual from a forward genetic screen. Therefore, we need fast and reliable methods to identify variants bypassing the reference genome assembly step. We now aim to improve and apply SDM in forward genetics screens of species where a reference genome is not yet available. Also, we plan to develop an accessible software that will speed up gene finding in non-sequenced organisms. 
 
 
-#References
-1. Page DR, Grossniklaus U: The art and design of genetic screens: Arabidopsis thaliana. Nat Rev Genet 2002, 3:124–36.
+#Figures
 
-2. Etherington GJ, Monaghan J, Zipfel C, MacLean D: Mapping mutations in plant genomes with the user-friendly web application candiSNP. Plant Methods 2014, 10:41.
 
-3. Schneeberger K: Using next-generation sequencing to isolate mutant genes from forward genetic screens. Nat Rev Genet 2014, 15:662–76.
+**Figure 1.** SDM percentage of deviation from expected location of the causal mutation. **(A)** The deviation is a measure of the difference between the expected mutation position and the candidate position predicted by SDM normalised by the model genome lenght. **(B)** 5 replicates of each model genome were created and results are shown as mean ± SD.  Genome size range from 1 to 15 Mb and two contig sizes were also analysed (approximately 700 contigs in light blue and 1300 contigs in dark blue). **(C)** 5 replicates of each model genome were created and results are shown as mean ± SD. The whole chromosome I from *Arabidopsis* was used as a model genome and three contig sizes were analysed (approximately 1000 contigs in light blue, 2000 contigs in dark blue and 3000 contigs in orange)
 
-4. Michelmore RW, Paran I, Kesseli RV: Identification of markers linked to disease-resistance genes by bulked segregant analysis: A rapid method to detect markers in specific genomic regions by using segregating populations. Proc Natl Acad Sci U S A 1991, 88:9828–32.
+**Figure 2.** Importance of filtering step based on Hom/het ratio in model genomes. The expected ratio was measured in the corretly ordered fragments. The hypothetical ratio was measured in the post SDM contig order.  
 
-5. Schneeberger K, Ossowski S, Lanz C, Juul T, Petersen AH, Nielsen KL, Jørgensen J-E, Weigel D, Andersen SU: SHOREmap: Simultaneous mapping and mutation identification by deep sequencing. Nat Methods 2009, 6:550–1.
+**Figure 3.** Identification of high homozygous SNP density peaks surrounding the causal mutation in 5 independent studies. **(A)** Overlapping homozygous, heterozygous SNP densities and ratios for OCF2, BCF2, bak1-5 mob1/mob2 and sup#1 **(B)** Standard pipeline for sequence alignment and SNP calling in forward genetics screens in *Arabipdopsis thaliana*.
 
-6. Sun H, Schneeberger K: SHOREmap v3.0: Fast and accurate identification of causal mutations from forward genetic screens. Methods Mol Biol 2015, 1284:381–95.
+**Figure 4.** Measurement of the correlation of the homozygous SNP density to a normal distribution in back-cross and out-cross experiments by probability (Q-Q) plots. Simple linear regression was used to determine the relationship.
 
-7. Austin RS, Vidaurre D, Stamatiou G, Breit R, Provart NJ, Bonetta D, Zhang J, Fung P, Gong Y, Wang PW, McCourt P, Guttman DS: Next-generation mapping of arabidopsis genes. Plant J 2011, 67:715–25.
+**Figure 5.** Simplified pipeline for mutant identification by SDM from sequencing reads. **(A)** Prior to running SDM. FastQ reads are subjected to a quality filtering step followed by a simple reference independent contig assembly. **(B)** SDM pre-filtering step to remove centromeric variability and parental mutations. Hom/het ratios are calculated. **(C)** SDM workflow. If required, contigs with a ratio below the threshold (25% of the maximum ratio) are not further considered in the analysis. Contig sorting based on normalised homozygous SNP density and plotting. 
 
-8. Wurtzel O, Dori-Bachash M, Pietrokovski S, Jurkevitch E, Sorek R: Mutation detection with next-generation resequencing through a mediator genome. PLoS One 2010, 5:e15628.
+**Figure 6.** Identification by SDM of genomic regions carrying causal mutations for 5 different and independent mutants (OCF2, BCF2, bak1-5 mob1/mob2 and sup#1). The expected ratio was measured in the corretly ordered fragments. The hypothetical ratio was measured in the post SDM contig order. Programme was run twice with and without pre-filtering step. 
 
-9. Livaja M, Wang Y, Wieckhorst S, Haseneyer G, Seidel M, Hahn V, Knapp SJ, Taudien S, Schön C-C, Bauer E: BSTA: A targeted approach combines bulked segregant analysis with next- generation sequencing and de novo transcriptome assembly for sNP discovery in sunflower. BMC Genomics 2013, 14:628.
+**Figure 1**
+![](Fig1/Fig1.png)
 
-10. Nordström KJV, Albani MC, James GV, Gutjahr C, Hartwig B, Turck F, Paszkowski U, Coupland G, Schneeberger K: Mutation identification by direct comparison of whole-genome sequencing data from mutant and wild-type individuals using k-mers. Nat Biotechnol 2013, 31:325–30.
+**Figure 2**
+![](Fig2/Ratios.png)
 
-11. Song J, Bradeen JM, Naess SK, Raasch JA, Wielgus SM, Haberlach GT, Liu J, Kuang H, Austin-Phillips S, Buell CR, Helgeson JP, Jiang J: Gene rB cloned from solanum bulbocastanum confers broad spectrum resistance to potato late blight. Proc Natl Acad Sci U S A 2003, 100:9128–33.
+**Figure 3**
+![](Fig3/densities.png)
 
-12. Fonseca VG, Carvalho GR, Sung W, Johnson HF, Power DM, Neill SP, Packer M, Blaxter ML, Lambshead PJD, Thomas WK, Creer S: Second-generation environmental sequencing unmasks marine metazoan biodiversity. Nat Commun 2010, 1:98.
+**Figure 4**
+![](Fig4/qqplotsmall.png)
 
-13. Koren S, Phillippy AM: One chromosome, one contig: Complete microbial genomes from long-read sequencing and assembly. Curr Opin Microbiol 2015, 23:110–20.
+**Figure 5**
+![](Fig5/pipeline.png)
 
-14. Kim KE, Peluso P, Babayan P, Yeadon PJ, Yu C, Fisher WW, Chin C-S, Rapicavoli NA, Rank DR, Li J, Catcheside DEA, Celniker SE, Phillippy AM, Bergman CM, Landolin JM: Long-read, whole-genome shotgun sequence data for five model organisms. Sci Data 2014, 1:140045.
+**Figure 6**
+![](Fig6/ratiossdm2.png)
 
-15. Minevich G, Park DS, Blankenberg D, Poole RJ, Hobert O: CloudMap: A cloud-based pipeline for analysis of mutant genome sequences. Genetics 2012, 192:1249–69.
 
-16. Abe A, Kosugi S, Yoshida K, Natsume S, Takagi H, Kanzaki H, Matsumura H, Yoshida K, Mitsuoka C, Tamiru M, Innan H, Cano L, Kamoun S, Terauchi R: Genome sequencing reveals agronomically important loci in rice using mutMap. Nat Biotechnol 2012, 30:174–8.
+#Aditional figures 
 
-17. Takagi H, Tamiru M, Abe A, Yoshida K, Uemura A, Yaegashi H, Obara T, Oikawa K, Utsushi H, Kanzaki E, Mitsuoka C, Natsume S, Kosugi S, Kanzaki H, Matsumura H, Urasaki N, Kamoun S, Terauchi R: MutMap accelerates breeding of a salt-tolerant rice cultivar. Nat Biotechnol 2015, 33:445–9.
+**Additional figure 1** (A) Simplified diagram of model genome creation. (B) The homozygous to heterozygous SNP ratio is calculated by fragment. The absolute number of homozygous SNPs in a fragment plus 1 are divided by the absolute number of heterozygous SNPs in the same fragment. 
 
-18. Galvão VC, Nordström KJV, Lanz C, Sulz P, Mathieu J, Posé D, Schmid M, Weigel D, Schneeberger K: Synteny-based mapping-by-sequencing enabled by targeted enrichment. Plant J 2012, 71:517–26.
+**Additional figure 2** Differences in the Hom/het ratio density by adding a different factor (1, 0.1 and 0.0.1) to numerator and denominator. 
 
-19. Allen RS, Nakasugi K, Doran RL, Millar AA, Waterhouse PM: Facile mutant identification via a single parental backcross method and application of whole genome sequencing based mapping pipelines. Front Plant Sci 2013, 4:362.
+**Additional figure 3** Change in the homozygous SNP density plot before filtering, after background SNPs filtering and centromere removal.
 
-20. Monaghan J, Matschi S, Shorinola O, Rovenich H, Matei A, Segonzac C, Malinovsky FG, Rathjen JP, MacLean D, Romeis T, Zipfel C: The calcium-dependent protein kinase cPK28 buffers plant immunity and regulates bIK1 turnover. Cell Host Microbe 2014, 16:605–15.
+**Additional figure 4** Recovery of SNP density correlation to normal after SDM for 5 different and independent mutants (OCF2, BCF2, bak1-5 mob1/mob2 and sup#1). Simple linear regression was used to determine the relationship. Programme was run twice with and without pre-filtering step. 
 
-21. Uchida N, Sakamoto T, Tasaka M, Kurata T: Identification of eMS-induced causal mutations in arabidopsis thaliana by next-generation sequencing. Methods Mol Biol 2014, 1062:259–70.
+**Additional figure 1.** 
+![](Additional/add1.png)
 
-22. Bolger AM, Lohse M, Usadel B: Trimmomatic: A flexible trimmer for illumina sequence data. Bioinformatics 2014, 30:2114–20.
+**Additional figure 2** 
+![](Additional/add2_comparison_ratios.png)
 
-23. Li H, Durbin R: Fast and accurate long-read alignment with burrows-wheeler transform. Bioinformatics 2010, 26:589–95.
+ **Additional figure 3** 
+![](Additional/addit3.png)
 
-24. Koboldt DC, Zhang Q, Larson DE, Shen D, McLellan MD, Lin L, Miller CA, Mardis ER, Ding L, Wilson RK: VarScan 2: Somatic mutation and copy number alteration discovery in cancer by exome sequencing. Genome Res 2012, 22:568–76.
+**Additional figure 4** 
+![](Additional/qqplotsdm.png)
 
-25. Koboldt DC, Chen K, Wylie T, Larson DE, McLellan MD, Mardis ER, Weinstock GM, Wilson RK, Ding L: VarScan: Variant detection in massively parallel sequencing of individual and pooled samples. Bioinformatics 2009, 25:2283–5.
 
-26. Team RDC: R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing; 2011.
-
-27. Komsta L, Novomestky F: Moments, Cumulants, Skewness, Kurtosis and Related Tests. 2015.
-
-28. Lamesch P, Berardini TZ, Li D, Swarbreck D, Wilks C, Sasidharan R, Muller R, Dreher K, Alexander DL, Garcia-Hernandez M, Karthikeyan AS, Lee CH, Nelson WD, Ploetz L, Singh S, Wensel A, Huala E: The arabidopsis information resource (tAIR): Improved gene annotation and new tools. Nucleic Acids Res 2012, 40(Database issue):D1202–10.
-
-29. DePristo MA, Banks E, Poplin R, Garimella KV, Maguire JR, Hartl C, Philippakis AA, Angel G del, Rivas MA, Hanna M, McKenna A, Fennell TJ, Kernytsky AM, Sivachenko AY, Cibulskis K, Gabriel SB, Altshuler D, Daly MJ: A framework for variation discovery and genotyping using next-generation dNA sequencing data. Nat Genet 2011, 43:491–8.
-
-30. Li H, Handsaker B, Wysoker A, Fennell T, Ruan J, Homer N, Marth G, Abecasis G, Durbin R, 1000 Genome Project Data Processing Subgroup: The sequence alignment/Map format and sAMtools. Bioinformatics 2009, 25:2078–9.
-
-31. Melters DP, Bradnam KR, Young HA, Telis N, May MR, Ruby JG, Sebra R, Peluso P, Eid J, Rank D, Garcia JF, DeRisi JL, Smith T, Tobias C, Ross-Ibarra J, Korf I, Chan SWL: Comparative analysis of tandem repeats from hundreds of species reveals unique insights into centromere evolution. Genome Biol 2013, 14:R10.
 
 
 
@@ -285,3 +280,68 @@ Forward genetic screens are very useful to identify genes responsible for partic
 </table>
 
 **Table 2**. Hypothetical candidate mutations obtained by SDM in out-cross and back-cross experiments and real mutation positions. (For simplicity, the 151 candidate positions predicted for sup#1 were not itemised here).
+
+
+
+#References
+1. Page DR, Grossniklaus U: The art and design of genetic screens: Arabidopsis thaliana. Nat Rev Genet 2002, 3:124–36.
+
+2. Etherington GJ, Monaghan J, Zipfel C, MacLean D: Mapping mutations in plant genomes with the user-friendly web application candiSNP. Plant Methods 2014, 10:41.
+
+3. Schneeberger K: Using next-generation sequencing to isolate mutant genes from forward genetic screens. Nat Rev Genet 2014, 15:662–76.
+
+4. Michelmore RW, Paran I, Kesseli RV: Identification of markers linked to disease-resistance genes by bulked segregant analysis: A rapid method to detect markers in specific genomic regions by using segregating populations. Proc Natl Acad Sci U S A 1991, 88:9828–32.
+
+5. Schneeberger K, Ossowski S, Lanz C, Juul T, Petersen AH, Nielsen KL, Jørgensen J-E, Weigel D, Andersen SU: SHOREmap: Simultaneous mapping and mutation identification by deep sequencing. Nat Methods 2009, 6:550–1.
+
+6. Sun H, Schneeberger K: SHOREmap v3.0: Fast and accurate identification of causal mutations from forward genetic screens. Methods Mol Biol 2015, 1284:381–95.
+
+7. Austin RS, Vidaurre D, Stamatiou G, Breit R, Provart NJ, Bonetta D, Zhang J, Fung P, Gong Y, Wang PW, McCourt P, Guttman DS: Next-generation mapping of arabidopsis genes. Plant J 2011, 67:715–25.
+
+8. Wurtzel O, Dori-Bachash M, Pietrokovski S, Jurkevitch E, Sorek R: Mutation detection with next-generation resequencing through a mediator genome. PLoS One 2010, 5:e15628.
+
+9. Livaja M, Wang Y, Wieckhorst S, Haseneyer G, Seidel M, Hahn V, Knapp SJ, Taudien S, Schön C-C, Bauer E: BSTA: A targeted approach combines bulked segregant analysis with next- generation sequencing and de novo transcriptome assembly for sNP discovery in sunflower. BMC Genomics 2013, 14:628.
+
+10. Nordström KJV, Albani MC, James GV, Gutjahr C, Hartwig B, Turck F, Paszkowski U, Coupland G, Schneeberger K: Mutation identification by direct comparison of whole-genome sequencing data from mutant and wild-type individuals using k-mers. Nat Biotechnol 2013, 31:325–30.
+
+11. Song J, Bradeen JM, Naess SK, Raasch JA, Wielgus SM, Haberlach GT, Liu J, Kuang H, Austin-Phillips S, Buell CR, Helgeson JP, Jiang J: Gene rB cloned from solanum bulbocastanum confers broad spectrum resistance to potato late blight. Proc Natl Acad Sci U S A 2003, 100:9128–33.
+
+12. Fonseca VG, Carvalho GR, Sung W, Johnson HF, Power DM, Neill SP, Packer M, Blaxter ML, Lambshead PJD, Thomas WK, Creer S: Second-generation environmental sequencing unmasks marine metazoan biodiversity. Nat Commun 2010, 1:98.
+
+13. Koren S, Phillippy AM: One chromosome, one contig: Complete microbial genomes from long-read sequencing and assembly. Curr Opin Microbiol 2015, 23:110–20.
+
+14. Kim KE, Peluso P, Babayan P, Yeadon PJ, Yu C, Fisher WW, Chin C-S, Rapicavoli NA, Rank DR, Li J, Catcheside DEA, Celniker SE, Phillippy AM, Bergman CM, Landolin JM: Long-read, whole-genome shotgun sequence data for five model organisms. Sci Data 2014, 1:140045.
+
+15. Minevich G, Park DS, Blankenberg D, Poole RJ, Hobert O: CloudMap: A cloud-based pipeline for analysis of mutant genome sequences. Genetics 2012, 192:1249–69.
+
+16. Abe A, Kosugi S, Yoshida K, Natsume S, Takagi H, Kanzaki H, Matsumura H, Yoshida K, Mitsuoka C, Tamiru M, Innan H, Cano L, Kamoun S, Terauchi R: Genome sequencing reveals agronomically important loci in rice using mutMap. Nat Biotechnol 2012, 30:174–8.
+
+17. Takagi H, Tamiru M, Abe A, Yoshida K, Uemura A, Yaegashi H, Obara T, Oikawa K, Utsushi H, Kanzaki E, Mitsuoka C, Natsume S, Kosugi S, Kanzaki H, Matsumura H, Urasaki N, Kamoun S, Terauchi R: MutMap accelerates breeding of a salt-tolerant rice cultivar. Nat Biotechnol 2015, 33:445–9.
+
+18. Galvão VC, Nordström KJV, Lanz C, Sulz P, Mathieu J, Posé D, Schmid M, Weigel D, Schneeberger K: Synteny-based mapping-by-sequencing enabled by targeted enrichment. Plant J 2012, 71:517–26.
+
+19. Allen RS, Nakasugi K, Doran RL, Millar AA, Waterhouse PM: Facile mutant identification via a single parental backcross method and application of whole genome sequencing based mapping pipelines. Front Plant Sci 2013, 4:362.
+
+20. Monaghan J, Matschi S, Shorinola O, Rovenich H, Matei A, Segonzac C, Malinovsky FG, Rathjen JP, MacLean D, Romeis T, Zipfel C: The calcium-dependent protein kinase cPK28 buffers plant immunity and regulates bIK1 turnover. Cell Host Microbe 2014, 16:605–15.
+
+21. Uchida N, Sakamoto T, Tasaka M, Kurata T: Identification of eMS-induced causal mutations in arabidopsis thaliana by next-generation sequencing. Methods Mol Biol 2014, 1062:259–70.
+
+22. Bolger AM, Lohse M, Usadel B: Trimmomatic: A flexible trimmer for illumina sequence data. Bioinformatics 2014, 30:2114–20.
+
+23. Li H, Durbin R: Fast and accurate long-read alignment with burrows-wheeler transform. Bioinformatics 2010, 26:589–95.
+
+24. Koboldt DC, Zhang Q, Larson DE, Shen D, McLellan MD, Lin L, Miller CA, Mardis ER, Ding L, Wilson RK: VarScan 2: Somatic mutation and copy number alteration discovery in cancer by exome sequencing. Genome Res 2012, 22:568–76.
+
+25. Koboldt DC, Chen K, Wylie T, Larson DE, McLellan MD, Mardis ER, Weinstock GM, Wilson RK, Ding L: VarScan: Variant detection in massively parallel sequencing of individual and pooled samples. Bioinformatics 2009, 25:2283–5.
+
+26. Team RDC: R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing; 2011.
+
+27. Komsta L, Novomestky F: Moments, Cumulants, Skewness, Kurtosis and Related Tests. 2015.
+
+28. Lamesch P, Berardini TZ, Li D, Swarbreck D, Wilks C, Sasidharan R, Muller R, Dreher K, Alexander DL, Garcia-Hernandez M, Karthikeyan AS, Lee CH, Nelson WD, Ploetz L, Singh S, Wensel A, Huala E: The arabidopsis information resource (tAIR): Improved gene annotation and new tools. Nucleic Acids Res 2012, 40(Database issue):D1202–10.
+
+29. DePristo MA, Banks E, Poplin R, Garimella KV, Maguire JR, Hartl C, Philippakis AA, Angel G del, Rivas MA, Hanna M, McKenna A, Fennell TJ, Kernytsky AM, Sivachenko AY, Cibulskis K, Gabriel SB, Altshuler D, Daly MJ: A framework for variation discovery and genotyping using next-generation dNA sequencing data. Nat Genet 2011, 43:491–8.
+
+30. Li H, Handsaker B, Wysoker A, Fennell T, Ruan J, Homer N, Marth G, Abecasis G, Durbin R, 1000 Genome Project Data Processing Subgroup: The sequence alignment/Map format and sAMtools. Bioinformatics 2009, 25:2078–9.
+
+31. Melters DP, Bradnam KR, Young HA, Telis N, May MR, Ruby JG, Sebra R, Peluso P, Eid J, Rank D, Garcia JF, DeRisi JL, Smith T, Tobias C, Ross-Ibarra J, Korf I, Chan SWL: Comparative analysis of tandem repeats from hundreds of species reveals unique insights into centromere evolution. Genome Biol 2013, 14:R10.

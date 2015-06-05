@@ -11,21 +11,21 @@ Results and discussion
 
 **Figure 2** Using ratio as threshold
 
-**Figure 3** A) Pipeline follow for real datasets B) Overlapping densities 
+**Figure 3** A) Overlapping densities B) Pipeline for alignment
 
-**Figure 4** A) QQplots
+**Figure 4** QQplots
 
 **Figure 5** Pipeline for SDM  
 
 **Figure 6** Results when using SDM with real SNP densities A) QQ-plots B) Ratios
 
-**Additional file 1**. A) Model genome B) formula to calculate ratio
+**Additional figure 1**. A) Model genome B) formula to calculate ratio
 
-**Additional file 2**. Effect of different factors on ratio
+**Additional figure 2**. Effect of different factors on ratio
 
-**Additional file 3**. Comparison of density plots before and after removing the background SNPs and the centromere. 
+**Additional figure 3**. Comparison of density plots before and after removing the background SNPs and the centromere. 
 
-**Additional file 4** Density plots after SDM
+**Additional figure 4**. Q-Q plots after SDM
 
 ######1. SDM design and modelling using Arabidopsis chromosome I and ideallized SNP densities (344)
 
@@ -53,7 +53,7 @@ To fix this issue, we determined a threshold value based on the ratio of homozyg
 
 ######4. Confirmation of the causative mutations identified by bulk segregant analysis using Illumina sequencing and Arabidopsis as a reference genome (678)
 
-We selected different sets of data of bulk segregant analysis of a mutation segregating in an out-cross or back-cross population. We performed convencional genome alignment to the reference genome using the reads provided in 4 different mapping-by-sequencing experiments  that succeed in identifying the mutation([@Galvao:2012], [@Allen:2013], [@Monaghan:2014], [@Uchida:2014]]). The techniques used to identify the mutations were different in every case so we took advantage of this fact to confirm the reproducibility of the methods available. To reproduce the experiments, we aligned the Illumina paired-end reads to the *Arabidopsis thaliana* reference genome TAIR10 [@Lamesch:2012aa] after a quality filtering step. Then, we used VarScan for variant detection. After plotting the SNP densitiy (**Fig. 3, pipeline**), we analysed the homozygous SNPs distribution in each chromosome and the ratio of homozygous to heterozygous to confirm the genomic region where the mutations were described. SNPs with a frequency of 0.8 or larger were considered homozygous. 
+We selected different sets of data of bulk segregant analysis of a mutation segregating in an out-cross or back-cross population. We performed convencional genome alignment to the reference genome using the reads provided in 4 different mapping-by-sequencing experiments  that succeed in identifying the mutation([@Galvao:2012], [@Allen:2013], [@Monaghan:2014], [@Uchida:2014]]). The techniques used to identify the mutations were different in every case so we took advantage of this fact to confirm the reproducibility of the methods available. To reproduce the experiments, we aligned the Illumina paired-end reads to the *Arabidopsis thaliana* reference genome TAIR10 [@Lamesch:2012aa] after a quality filtering step. Then, we used VarScan for variant detection. After plotting the SNP densitiy (**Additional file 4**), we analysed the homozygous SNPs distribution in each chromosome and the ratio of homozygous to heterozygous to confirm the genomic region where the mutations were described. SNPs with a frequency of 0.8 or larger were considered homozygous. 
 
 In the first study, they generated a recombinant mapping population by outcrossing a Col-0 background mutant to the divergent accession Ler-0. The offspring were allowed to self-fertilize. A mutant pool of 119 F2 individuals was sequenced (we refer to this dataset as **OCF2**) [@Galvao:2012]. The two parental lines Col-0 and Ler-0 were also sequenced. Then, they performed conventional SHOREmap [@Schneeberger:2009] to identify the mutation causing late flowering which lied on chromosome 2, specifically on gene _SOC1_(18807538..18811047).
 
@@ -63,7 +63,7 @@ We also analysed a recent forward screen done in the immune-deficient bak1-5 bac
 
 The last mapping-by-sequencing study we used was obtained by outcrossing a Arabidopsis Wassilewskija (Ws-0) background mutant to Col-0 wild-type plants followed by sequecing of 88 F2 individuals and Ws and Col as parental lines [@Uchida:2014]. They described a pipeline to identify the causal mutation based on the peaks obtained by plotting ratios of homozygous SNPs to heterozygous SNPs. By following this approach, they reported that the majority of SNPs detected on chromosome 4 were homozygous and they identified the sup#1 mutation on the _SGT1b_ gene (6851277..6853860). They also shown a homozygous peak on chromosome 1 due to the transgene present in the original population. 
 
-Once we obtained the homozygous SNP densities, we proceed to plot the homozygous and heterozygous SNP densities. For all the forward genetics screens under analysis we confirmed that there was a high homozygous SNP density in the genomic area where the causal SNP was previously described, suggesting a linkage of homozygous SNPs to the phenotype-altering SNP in a low recombination area. By plotting the densities (**Fig. 3B**) in all the chromosomes after filtering, we could confirm that the high SNP density peak was unique for all the cases apart from one. The outcrossed sup#1 mutant also showed a peak in chromosome 1, but this was expected and described in the original report [@Uchida:2014]. We divide the chromosomes in 100 kb fragments and calculate the ratios of homozygous SNPs to heterozygous SNPs (**Fig. 3B**).
+Once we obtained the homozygous SNP densities, we proceed to plot the homozygous and heterozygous SNP densities. For all the forward genetics screens under analysis we confirmed that there was a high homozygous SNP density in the genomic area where the causal SNP was previously described, suggesting a linkage of homozygous SNPs to the phenotype-altering SNP in a low recombination area. By plotting the densities (**Fig. 3**) in all the chromosomes after filtering, we could confirm that the high SNP density peak was unique for all the cases apart from one. The outcrossed sup#1 mutant also showed a peak in chromosome 1, but this was expected and described in the original report [@Uchida:2014]. We divide the chromosomes in 100 kb fragments and calculate the ratios of homozygous SNPs to heterozygous SNPs (**Fig. 3**).
 
 ######5.Homozygous SNPs in forward genetics screens are normally distributed around the causative mutation (232)
 

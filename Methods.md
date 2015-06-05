@@ -21,4 +21,5 @@ Density plots, QQplots and histograms were built as described in the R (v3.1.1) 
 
 We used Kernel Density Estimation in R [@R_language] to identify the high homozygous SNP density areas in the chromosomes. Then, to test the correlation between the SNP distributions and a normal distribution we used the qqplot function available in R. We measured the kurtosis and skewness of the SNP distributions by using the package 'moments' [@momentsR].
 
+[1]: I guess you are working on this still, it isn't nearly done. We should chat. 
  

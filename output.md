@@ -70,6 +70,7 @@ To call SNPs we used the mpileup2snp command from VarScan v2.3.7 (http://varscan
 The VCF files obtained from VarScan allowed us the generation of homozygous and hetezygous SNP positions lists in the chromosome where the causal mutation was previously described. We divide the chromosome in fragments of 100 kb and used the real SNP densities to run SDM. 
 
 SDM generates several output files: 
+
 a. FASTA file with the hypothetical fragment order
 b. Q-Qplot comparing the correlation between the homozygous SNP distribution after SDM and a the expected normal distribution 
 c. Density plot with the hypothetical homozygous and  heterozygous SNP densities and ratios 

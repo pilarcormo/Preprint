@@ -1,32 +1,27 @@
-[Abstract.md](https://github.com/pilarcormo/Preprint/blob/master/Abstract.md)
+Abstract.md
 
 #Identification of genomic regions carrying a causal mutation in unordered genomes.
 
-Whole genome sequencing using Next-Generation Sequencing (NGS) technologies offers a unique opportunity to study genetic variations. However, mapping the mutations responsible for phenotypes is generally a tedious and time-consuming process. In the last few years, researchers have developed user-friendly tools for mapping-by-sequencing, yet they are not applicable to organisms with non-sequenced genomes.
+Whole genome sequencing using high-throughput sequencing (HTS) technologies offers powerful opportunities to study genetic variations. Mapping the mutations responsible for phenotypes is generally an involved and time-consuming process so researchers have developed user-friendly tools for mapping-by-sequencing, yet they are not applicable to organisms with non-sequenced genomes.
 
-We introduced SDM (SNP Distribution Method), a reference independent method for rapid discovery of mutagen-induced homozygous mutations in forward genetics screens. For our purpose, a mutant individual is crossed to a non-mutant line followed by one generation of backcrossing of the heterozygous F1 samples.The offspring of this second cross gives rise to a recombinant population that will segregate for the mutant phenotype. SDM relies on the normal distribution of homozygous SNPs that are linked to the phenotype-altering SNP in a non-recombinant region. Consequently, the homozygous/heterozygous SNP ratio will be higher in this area where the SNP of interest is located.
+We introduce SDM (SNP Distribution Method), a reference independent method for rapid discovery of mutagen-induced mutations in typical forward genetics screens. SDM aims to order a disordered collection of HTS reads or contigs so that the fragment carrying the causative mutations can be identified. SDM uses typical distributions of homozygous SNPs that are linked to a phenotype-altering SNP in a non-recombinant region as a model to order the fragments. To implement and test SDM, we created model genomes with SNP density based on *Arabidopsis thaliana* chromosome and analysed fragments with size distribution similar to reads or contigs assembled from HTS sequencing experiments. SDM groups the contigs by their normalised SNP density and arranges them to maximise the fit to the expected SNP distribution. We analysed the procedure in existing data sets by examining SNP distribution in recent out-cross [@Galvão et al. 2012], [@Uchida et al. 2014] and back-cross experiments [@Allen et al. 2013], [@Monaghan et al. 2014] in *Arabidopsis thaliana* backgrounds. In all the examples we analysed, homozygous SNPs were normally distributed around the causal mutation. We used the real SNP densities obtained from these experiments to prove the efficiency and accuracy of SDM. The algorithm succeed in the identification of the genomic regions of small size (10-100 kb) containing the causative mutations.
 
-First, to emulate real data, we created model genomes with the expected SNP density based on *Arabidopsis thaliana* chromosome I. We split it into fragments that imitate contigs assembled from NGS reads. SDM groups the contigs by their normalised homozygous SNP density and then arranges them so that they follow the expected SNP distribution. Then, as a proof-of-concept, we analysed the SNP distribution in recent out-cross [@Galvão et al. 2012], [@Uchida et al. 2014] and back-cross experiments [@Allen et al. 2013], [@Monaghan et al. 2014] in *Arabidopsis thaliana* backgrounds. In all the examples we analysed, homozygous SNPs were normally distributed around the causal mutation. We used the real SNP densities obtained from these experiments to prove the efficiency and accuracy of SDM. It succeed in the identification of the genomic regions (10-100 kb) containing the causative mutations. We now aim to apply this method in a species without a reference genome available.
-
-[Background.md](https://github.com/pilarcormo/Preprint/blob/master/Background.md)
+Background.md
 
 Background 
 ===
 
-Forward genetic screens have been a fundamental strategy to find  genes involved in biological pathways in model species. Probably the most widely used mutagenesis strategy is the induction of guanine-to-adenine substitutions using ethylmethane sulfonate (EMS) [@Page:2002]. Genetic screens generally rely on the same basic principles. First, an individual with a phenotype of interest is isolated from a mutagenized population. Then, a recombinant mapping population is created by back-crossing to the parental line or out-crossing to a polymorphic ecotype [@Etherington:2014]. The recombinant population obtained from that cross will segregate for the mutant phenotype and individuals showing the mutant phenotype will carry the causal mutation, even if the genomic location is unknown. The recombination frequency between the causal mutation and nearby genetic markers is low, so the alleles of these linked genetic markers will co-segregate with the phenotype-altering mutation while the remaining unlinked makers segregate randomly in the genome [@Schneeberger:2014aa]. Hence, the allele distribution analysis can unhide these low recombinant regions to identify the location of the causal mutation. This process of genetic analysis is often referred to as bulk segregant analysis (BSA) [@Michelmore:1991aa].
+Forward genetic screens have been a fundamental strategy to find  genes involved in biological pathways in model species. In these a population is treated with a mutagen that alters the DNA of individuals in some way, e.g. induction of guanine-to-adenine substitutions using ethylmethane sulfonate (EMS) [@Page:2002], then individuals with a phenotype of interest are isolated from a mutagenized population and a recombinant mapping population is created by back-crossing to the parental line or out-crossing to a polymorphic ecotype [@Etherington:2014]. The recombinant population obtained from that cross will segregate for the mutant phenotype and individuals showing the mutant phenotype will carry the causal mutation, even if the genomic location is unknown. The recombination frequency between the causal mutation and nearby genetic markers is low, so the alleles of these linked genetic markers will co-segregate with the phenotype-altering mutation while the remaining unlinked makers segregate randomly in the genome [@Schneeberger:2014aa]. Hence, the allele distribution analysis can unhide these low recombinant regions to identify the location of the causal mutation. This process of genetic analysis is often referred to as bulk segregant analysis (BSA) [@Michelmore:1991aa].
 
-However, traditional genetic mapping is a tedious and time-consuming process. Recent advances in deep sequencing have greatly accelerated the identification of mutations underlying mutant phenotypes in forward genetic screens.  Several methods as SHOREmap [@Schneeberger:2009], [@Sun:2015], NGM [@Austin:2011] or CandiSNP [@Etherington:2014] based on bulked-segregant analysis of F2 progeny have succeed in the mutant identification in *Arabidopsis thaliana*. However, all these methods depend on a first mapping step to a reference genome. This requirement makes these methods not applicable to species for wich a reference genome is not yet available. Alternative solutions as using reference sequences of related species have been proposed [@Wurtzel:2010], [@Livaja:2013aa]. However, the need for low sequence divergence and high levels of synteny between the mutant reads and the related reference sequence have restained the application of this approach [@Schneeberger:2014aa],[@Nordstrom:2013aa].
+Traditional genetic mapping is a work intensive and time-consuming process but recent advances in high-throughput sequencing (HTS) have greatly accelerated the identification of mutations underlying mutant phenotypes in forward genetic screens.  Several methods as SHOREmap [@Schneeberger:2009], [@Sun:2015], NGM [@Austin:2011] or CandiSNP [@Etherington:2014] based on bulked-segregant analysis of F2 progeny have succeed in the mutant identification in *Arabidopsis thaliana*. All these methods depend on an assembled reference genome and cannot be used in species for which a reference genome is not available. Some alternative solutions as using reference sequences of related species have been proposed [@Wurtzel:2010], [@Livaja:2013aa], but these need low sequence divergence and high levels of synteny between the mutant reads and the related reference sequence and this has restained the application of this approach [@Schneeberger:2014aa],[@Nordstrom:2013aa].
 
-Currently, a great effort is being made to obtain reference sequences for the major species. Yet, even with a reference sequence available, the mutant screening approach present certain limitations. Fast-evolving genes such as disease resistance genes [@Song:2003aa] might be absent or divergent from the reference genome or it might be difficult to define a single reference sequence in metagenomic studies [@Fonseca:2010aa]. Also, reference genomes in higher eukaryotes have gaps what can lead to an incorrect mapping.  The development of de novo assembly technologies based on PacBio or Illumina long-read sequencing have reduced the computational time required to obtain a draft genome and allow the obtention of data to close gaps and address low quality regions in existing genome assemblies [@Koren:2015aa, @Kim:2014aa]. With these technologies, the N50 contig length may reach several kilobases, so we hope these draft genomes can speed up bulk segregant analysis based on sequencing.
+Substantial effort is being made to sequence many species but reasonable completion of a sequence remains expensive and time-comsuming, and fragmented draft genomes present certain limitations in use for mutation mapping in many circumstances. Fast-evolving and repetitive genes such as disease resistance genes [@Song:2003aa] might be absent or divergent from draft reference genome assemblies. Also, draft genomes often have gaps that can frustrate alignments.  
 
-In the last few years, several reference-free methods for mutation identification have been proposed [Iqbal:2012aa], [Nordstrom:2013aa], [@Minevich:2012aa], [@Abe:2012] to solve the reference sequence restriction. For example, NIKS  relies on the analysis of k-mers, which are defined as sub-sequences of length k within the NGS data of different samples. By using these short-read assemblies, the mutant reads pool and the wild-type pool (or a second mutant pool) can be compared to select fixed differences among them [@Nordstrom:2013aa]. In the case of Mutmap, mutant identifcation is independent of recombination or genetic crosses. It also relies on a comparison between different mutant reads. When independent mutant alleles of the same gene are found, this gene is prioritized as the putative causative gene [@Abe:2012], [@Takagi:2015aa], [@Schneeberger:2014aa]. Even if these methodologies are promising, they are restricted to certain types of crosses and are computationally complex [@Etherington:2014]. 
+In the last few years, several reference-free methods for general mutation identification have been proposed [Iqbal:2012aa], [Nordstrom:2013aa], [@Minevich:2012aa], [@Abe:2012] to solve the reference sequence restriction, but none have been extended to allow for direct identification of causative mutations.  [@Abe:2012], [@Takagi:2015aa], [@Schneeberger:2014aa]. 
 
-Here we propose a fast mutant identification method based on a simple reference-free contig assembly that allows the detection of SNPs. Instead of relying on a genome comparison, we focus on the SNP linkage around the causal mutation. We analysed the SNP distribution to identify the chromosome area where the putative mutated gene is located. SDM does not rely on previously known genetic markers and it does not need a reference genome, instead it sorts the contigs by their SNP density. 
+We propose SDM, a fast causative mutant identification method based on a simple reference-free contig assembly that allows the detection of SNPs. Instead of relying on a genome comparison, we focus on the SNP linkage around the causal mutation and analyse the SNP distribution to identify the chromosome area where the putative mutated gene is located. SDM does not rely on previously known genetic markers and it does not need a reference genome. 
 
-We recently selected different datasets from previous studies in which a mutated gene was identified in a out-cross or back-cross population [@Galvao:2012], [@Allen:2013], [@Monaghan:2014], [@Uchida:2014]. These studies confirmed by different methods the gene responsible for the mutant phenotype so they were a good starting point to avoid taking shots in the dark. SDM was proven to be fast and accurate and opens up many possibilities for forward genetic screens in those species for which a reference sequence is not available. 
-
-[Methods.md](https://github.com/pilarcormo/Preprint/blob/master/Methods.md)
-
+Methods.md
 Methods
 ===
 
@@ -55,7 +50,7 @@ We analysed two different and independent mutants (**mob1** and **mob2**) [@Mona
 
 The last dataset we used (**sup#1** dataset) was obtained by outcrossing a Arabidopsis Wassilewskija (Ws-0) background mutant to Col-0 wild-type plants followed by sequecing of 88 F2 individuals and Ws and Col as parental lines. They described a pipeline to identify the causal mutation based on the peaks obtained by plotting ratios of homozygous SNPs to heterozygous SNPs  [@Uchida et al. 2014].
 
-####4. Mapping and SNP calling
+####4. Read mapping and SNP calling
 
 Mutant and parental reads were subjected to the same variant calling approach.
 
@@ -65,7 +60,7 @@ The clean reads were aligned to *Arabidopsis thaliana* reference genome (TAIR10)
 
 To call SNPs we used the mpileup2snp command from VarScan v2.3.7 (http://varscan.sourceforge.net) [@Koboldt:2012aa], [@Koboldt:2009aa] to get VCF 4.1 output. A default allele frequency of 0.8 was used to clasify the SNPs as homozygous. 
   
-####5. Using real SNP densities in SDM
+####5. Using real SNP densities in the model 
 
 The VCF files obtained from VarScan allowed us the generation of homozygous and hetezygous SNP positions lists in the chromosome where the causal mutation was previously described. We divide the chromosome in fragments of 100 kb and used the real SNP densities to run SDM. 
 
@@ -83,129 +78,71 @@ We used the Kernel Density Estimation in R [@R_language] to identify the high ho
 
 To improve SDM accuracy and unmask the high homozygous SNP peak, we perform two filtering steps. The first one based on the background SNPs, those SNPs that were present in both parental and mutant VCF files were removed from the mutant SNP list. The second step of filtering was based on the variability in the centromeric region.
 
- 
-
-[Results.md](https://github.com/pilarcormo/Preprint/blob/master/Results.md)
+ Results.md
 Results and discussion
 ===
 
-######1. SDM detects the high SNP density peak with a negligible deviation from the expected peak when using model genomes 
+######SDM detects the high SNP density peak with a negligible deviation from the expected peak when using model genomes 
 
-To develop our method to identify an experimentally induced causal mutation, we created different model genomes (**Additional 1**) based on _Arabidopsis thaliana_ chromosome. We tested different parameters that could have a potential effect on SDM performance: genome length, contig size, homozygous SNP density, heterozygous SNP density, way of calculating the homozygous to heterozygous ratio and location of the causal mutation.
+To develop our method to identify an experimentally induced causal mutation, we created different model genomes (**Additional fig. 1**) based on _Arabidopsis thaliana_ chromosome. We tested different parameters that could have a potential effect on SDM performance: genome length, contig size, homozygous SNP density, heterozygous SNP density, way of calculating the homozygous to heterozygous ratio and location of the causal mutation.
 
-We used a set of unordered contigs and the ideal SNP distribution as starting point. SDM sorts the fragments by their SNP density values so that they follow a Gaussian distribution. The homozygous SNPs to heterozygous SNPs (Hom/het) ratio is also measured. Due to the SNP linkage to the causal mutation, the ratio will be higher in the low recombinant genomic region. We analysed the effect of the factor added to numerator and denominator (**Additional 2**) by using different values (1, 0.1 and 0.01) but did not find any conclusive improvement with any of them so decided to use 1. In our ideallised model, the ratio will be maximum in the area where the causative SNP is located.
+We used a set of unordered contigs and the ideal SNP distribution as starting point. SDM sorts the fragments by their SNP density values so that they follow a Gaussian distribution. The homozygous SNPs to heterozygous SNPs (Hom/het) ratio is also measured. Due to the SNP linkage to the causal mutation, the ratio will  be maximum in the area where the causative SNP is located. We analysed the effect of the factor added to numerator and denominator (**Additional fig. 2**). We meaused the ratio by using different values (1, 0.1 and 0.01) but did not find any conclusive improvement with any of them so decided to use 1. 
 
 To estimate the effect of the genome length, we created model genomes of different sizes ranging from 1 Mb to 15 Mb. To test the influence of the contig size, we used a variable contig length randomly ranging between a provided mininum value and a maximum value, calculated by doubling the minimum. We used two minimum contig sizes (500 bp and 1000 bp) that gave rise to approximately 1300 and 700 contigs respectively. 
 
-We started using a high SNP density (1 SNP each 500 bp), with the causal mutation located in the middle of the distribution. By using the model, we define beforehand the location of the  causative mutation  and we can measure the deviation (**Fig. 1A**) of SDM from the expected position. To guarantee the confidence of SDM, we created 5 replicates for each condition and we calculate the average deviation from the causal mutation for all the genome sizes and contig sizes (**Fig. 1B**). In all the cases, we proved that SDM identified the high density peak with no significant effect of genome length and contig size. The deviation from the causal mutation assigned in the model was always lower than 0.5%, so we can conclude that our method was reliable to estimate the mutation under these conditions. In order to move on to less ideal genomes, we repeated the previous experiment by using the whole chromosome I and 3 different contig sizes. The results were similar to those for smaller genomes, and again we did not see any significant effect of genome length or contig size (**Fig. 1C**). 
+We started using a high SNP density (1 SNP each 500 bp), with the causal mutation located in the middle of the distribution. By using the model, we define beforehand the location of the  causative mutation so we can measure the deviation (**Fig. 1A**) of SDM from the expected position. To guarantee the confidence of SDM, we created 5 replicates for each condition and calculated the average deviation from the causal mutation for all the genome sizes and contig sizes (**Fig. 1B**). We proved that SDM identified the high density peak with no significant effect of genome length and contig size. The deviation from the causal mutation assigned in the model was always lower than 0.5%, so we can conclude that our method was reliable to estimate the mutation under these conditions.  We repeated the previous experiment by using the whole chromosome I and 3 different contig sizes. The results were similar to those for smaller genomes, and again we did not see any significant effect of genome length or contig size (**Fig. 1C**). 
 
-######2. A pre-filtering step based on the homozygous to heterozygous SNPs ratio improves SDM accuracy 
+######A pre-filtering step based on the homozygous to heterozygous SNPs ratio improves SDM accuracy 
 
-SDM worked perfectly when the idealised causal mutation was located in the middle of the distribution (mean) as the number of fragments at both sides (right and left) was the same. However, when we shifted the causal mutation in our model to one side (one tail was longer than the other), SDM was not able to sort the contigs properly. The reason for this shift is that the contigs with the same SNP frequency are impossible to classify as belonging to the right or left tail. 
+SDM worked perfectly when the idealised causal mutation was located in the middle of the distribution (mean) as the number of fragments at both sides (right and left) was the same. When we shifted the causal mutation in our model to one side (one tail was longer than the other), SDM was not able to sort the contigs properly. The reason for this shift is that  contigs with the same SNP frequency are impossible to classify as belonging to the right or left tail. 
 
-To fix this issue, we determined a threshold value based on the ratio of homozygous to heterozygous SNPs. In this way, the contigs with a ratio below the threshold are not considered in the analysis, and only those with a high ratio are sorted. In this way, the exact position in the genome cannot be determined but we can assess the contigs in which the mutation is more likely to be found, dismissing a great part of the genome that is hiding the causative mutation. To test the influence of the threshold we used the whole chromosome I from *Arabdidopsis* as a model. We tested different ratio values from 0.5 to 2 (**Fig. 2**). 0.5 or 1 were discriminative enough for SDM to find the correct order of the relevant contigs. In the end, we standardised this value and used a 25% of the maximum ratio as threshold.
+We delimited a threshold value based on the ratio of homozygous to heterozygous SNPs. The contigs with a ratio below the threshold are not considered in the analysis, and only those with a high ratio are sorted. Even though the exact position in the genome cannot be determined by this approach, we can assess the contigs in which the mutation is more likely to be found, dismissing a great part of the genome that is hiding the causative mutation. To test the influence of the threshold we used the whole chromosome I from *Arabdidopsis* as a model. We tested different ratio values from 0.5 to 2 (**Fig. 2**). 0.5 or 1 were discriminative enough for SDM to find the correct order of the relevant contigs. We standardised this value and used a 25% of the maximum ratio as threshold.
 
 
-######3. Confirmation of the causative mutations identified by bulk segregant analysis using Illumina sequencing and Arabidopsis as a reference genome 
+######Confirmation of the causative mutations identified by bulk segregant analysis using Illumina sequencing and Arabidopsis as a reference genome 
 
-We selected different sets of data of bulk segregant analysis of a mutation segregating in an out-cross or back-cross population. We performed convencional genome alignment to the reference genome using the reads provided in 4 different mapping-by-sequencing experiments  that succeed in identifying the mutation([@Galvao:2012], [@Allen:2013], [@Monaghan:2014], [@Uchida:2014]]). The techniques used to identify the mutations were different in every case so we took advantage of this fact to confirm the reproducibility of the methods available. To reproduce the experiments, we aligned the Illumina paired-end reads to the *Arabidopsis thaliana* reference genome. Then, we used VarScan for variant calling. After plotting the SNP densitiy (**Additional file 4**), we analysed the homozygous SNPs distribution in each chromosome and the ratio of homozygous to heterozygous to confirm the genomic region where the mutations were described. 
+We selected different sets of data of bulk segregant analysis of a mutation segregating in an out-cross [@Galvao:2012], [@Uchida:2014]] or back-cross [@Allen:2013], [@Monaghan:2014] population. We performed convencional genome alignment to the reference genome using the reads provided in the 4 mapping-by-sequencing experiments. The techniques used to identify the mutations were different in every case so we took advantage of this fact to confirm the reproducibility of the available methodology.  We aligned the Illumina paired-end reads to the *Arabidopsis thaliana* reference genome. Then, we used VarScan for variant calling. After plotting the SNP densitiy (**Additional file 4**), we analysed the homozygous SNPs distribution in each chromosome and the ratio of homozygous to heterozygous SNPs to confirm the genomic region where the mutations were described. 
 
-In the first out-cross experiment we analised (OCF2)[@Galvão et al. 2012] they identified the mutation causing late flowering which lied on chromosome 2, specifically on gene _SOC1_(18807538..18811047). In the second study (BCF2) they analised the mutant individuals showing leaf hyponasty to identify a gene involved in the Arabidopsis microRNA pathway. They identified the causal SNP mutation in _HASTY_, a gene on chromosome 3 (1401271..1408197). In a recent forward screen done in the immune-deficient bak1-5 background to identify novel components involved in plant immune signalling [@Monaghan:2014], they identified causal mutations in the gene encoding the calcium-dependent protein kinase CPK28 (26456285..26459631) for both bak1-5 mob1 and bak1-5 mob2. In the last mapping-by-sequencing study we used they reported that the majority of SNPs detected on chromosome 4 were homozygous and they identified the sup#1 mutation on the _SGT1b_ gene (6851277..6853860). They also shown a homozygous peak on chromosome 1 due to the transgene present in the original population. ]
+In the first out-cross experiment we analised (OCF2) [@Galvão et al. 2012] they identified the mutation causing late flowering which lied on chromosome 2, specifically on gene _SOC1_ (18807538..18811047). In the second study (BCF2) they analised the mutant individuals showing leaf hyponasty to identify a gene involved in the Arabidopsis microRNA pathway. They identified the causal SNP mutation in _HASTY_, a gene on chromosome 3 (1401271..1408197). In a recent forward screen done in the immune-deficient bak1-5 background to identify novel components involved in plant immune signalling [@Monaghan:2014], they identified causal mutations in the gene encoding the calcium-dependent protein kinase CPK28 (26456285..26459631) for both bak1-5 mob1 and bak1-5 mob2. In the last mapping-by-sequencing study we used they reported that the majority of SNPs detected on chromosome 4 were homozygous and they identified the sup#1 mutation on the _SGT1b_ gene (6851277..6853860). They also shown a homozygous peak on chromosome 1 due to the transgene present in the original population. 
 
-Once we obtained the homozygous SNP densities, we proceed to plot the homozygous and heterozygous SNP densities. For all the forward genetics screens under analysis we confirmed that there was a high homozygous SNP density peak in the genomic area where the causal SNP was previously described (**Fig. 3**). These results corroborate the idea of linkage of homozygous SNPs to the phenotype-altering SNP in the region were recombination events are unlikely to occur. 
+Once we obtained the homozygous SNP densities, we proceed to plot the homozygous and heterozygous SNP densities. For all the forward genetics screens under analysis we confirmed that there was a high homozygous SNP density peak in the genomic area where the causal SNP was previously described (**Fig. 3**). These results corroborate the idea of linkage of homozygous SNPs to the phenotype-altering SNP in the region where recombination events are unlikely. 
 
-The high homozygous density peaks were unique in the genome after filtering in all the studies except for the outcrossed sup#1 mutant,  where a high density peak was also found in chromosome 1. This was expected and described in the original report [@Uchida:2014].
+The high homozygous density peaks were unique in the genome after filtering in all the studies except for the out-crossed sup#1 mutant,  where a high density peak was also found in chromosome I. This was expected and described in the original report [@Uchida:2014].
 
-######4.Homozygous SNPs in forward genetics screens are normally distributed around the causative mutation 
+######Homozygous SNPs in forward genetics screens are normally distributed around the causative mutation 
 
-After running a standardised variant calling approach with different sets of reads obtained from bulk segregant analysis, we showed a unique distribution peak  around the causative mutation. The next step was to know if this SNP distribution obtained correlated well with a theoretical probability distribution. For this aim, we built probability plots or Q-Q plots with the homozygous SNP densities in back-cross and out-cross experiments in Arabidopsis (**Fig. 4A**). Our results indicate that there is a good correlation between these distributions and a normal distribution. We further validated the correlation between the sample values and the predicted values by a simple linear regression (r<sup>2</sup> >0.9) for all the examples. The standard deviation, although variable between samples, oscillated between 3 and 7 Mb (**Table 1**). 
+After running the standardised variant calling approach with the different data sets, we showed a unique peak in the SNP distribution around the causative mutation (**Fig. 3**). The next step was to analyse the correlation of the SNP distribution to a theoretical probability distribution. For this aim, we built probability plots or Q-Q plots with the homozygous SNP densities in the back-cross and out-cross experiments (**Fig. 4A**). Our results indicate that there is a good correlation between the homozygous SNP frequencies and a normal distribution. We further validated the correlation between the sample values and the predicted values by a simple linear regression (r<sup>2</sup> >0.9). The standard deviation, although variable between samples, oscillated between 3 and 7 Mb (**Table 1**). 
 
 We also analysed the shape of the distributions by measuring the kurtosis (**Table 1**). 4 of the 5 distributions were platykurtic, as they showed a negative kurtosis and consequently a lower, wider peak around the mean and thinner tails. Only one (sup#1) was leptokurtic (positive kurtosis). We also measured the skewness; this value implies that the distribution of the data is skewed to the left (negatively skewed) or to the right (positively skewed). The skewness will depend on the location of the causal mutation in the chromosome, so as expected, we did not see any conserved tendency among the data (**Table 1**). 
 
-######5. Filtering background SNPs and centromeres unmasks the high homozygous SNP density peak 
+######Filtering background SNPs and centromeres unmasks the high homozygous SNP density peak 
 
-We filtered the background SNPs to reduce the complexity of the SNP lists and improve the degree of correlation to a normal distribution. The parental reads were subjected to the same variant calling approach and those SNPs that were present in both parental and mutant samples were removed from the mutant SNP list (**Fig. 3B**, **Additional fig. 3**). The usefulness of removing non-unique SNPs is not new, and all the  mapping-by-sequencing  experiments we have chosen here did the same filtering to some extent. 
+We filtered the background SNPs to reduce the complexity of the distribution and improve the degree of correlation to a bell curve. The parental reads were subjected to the same variant calling approach and those SNPs that were present in both parental and mutant samples were removed from the mutant SNP list (**Fig. 3B**). The usefulness of removing non-unique SNPs is not new, and all the  mapping-by-sequencing  experiments we have chosen here did the same filtering to some extent. ([@Galvao:2012], [@Uchida:2014]], [@Allen:2013], [@Monaghan:2014])
 
-SDM accuracy was improved when the we removed SNPs concentrated around centromeres (**Additional fig. 3**). It was easy in this case since we were using *Arabidopsis thaliana* as a model organism and centromeres are well defined in the genome assembly. However, for the long-term goal of the methodology proposed, we still have to develop some way to identify the variability due to the centromere. Many studies have shown the peculiarity of the centromere, so these sequences should be easy to identify. Centromeres are  characterised by  the presence of tandem repeats, and extremely high repeat abundance (often >10,000 copies per chromosome) [@Melters:2013aa].
+SDM accuracy was improved when the we removed SNPs concentrated around centromeres (**Additional fig. 3**). The use of *Arabidopsis thaliana* reads simplified this filtering step since centromeres are well defined in the genome assembly. F or the long-term goal of the methodology proposed, we still have to develop some way to identify the variability due to the centromere. Many studies have shown the peculiarity of the centromere, so these sequences should be easy to identify. Centromeres are  characterised by  the presence of tandem repeats, and extremely high repeat abundance (often >10,000 copies per chromosome) [@Melters:2013aa].
 
-######6. SDM identifies the genomic region carrying the causal mutation previously described by other methods
+######SDM identifies the genomic region carrying the causal mutation previously described by other methods
 
-As a final proof-of-concept, we used the SNP densities obtained from OCF2, BCF2, mob1-mob2 and sup#1 datasets to create new model genomes. We took the chromosomes where the mutations were described and split them into fragments. 
+As a final proof-of-concept, we used the SNP densities obtained from OCF2, BCF2, mob1-mob2 and sup#1 datasets to create new model genomes. We took the chromosomes where the mutations were described and split them into fragments of standard contig size.
 
-We regained the normal distribution for all the datasets after shuffling the contig order and running SDM (**Fig. 6A**). The correct contig order and real ratio distribution are known, so we created a plot comparing the hypothetical ratio distribution after SDM and the real one to test the performance of SDM (**Fig. 6B**). 
+We regained the normal distribution for all the datasets after shuffling the contig order and running SDM (**Additional fig. 4**). The correct contig order and real ratio distribution are known, so we created a plot comparing the hypothetical ratio distribution after SDM and the real one to test the performance of SDM (**Fig. 6B**). 
 
-In our case studies, the causal mutation estimation by SDM was more accurate in back-crosses (bak1-5 mutants and BCF2) than in out-crosses (OCF2 and sup#1). The number of segregating SNPs is lower in back-cross experiments (1 SNP every 65,000 bp)  compared to out-crosses (1 SNP every 900 bp) [@Etherington:2014]. The large number of segregating SNPs in out-crosses complicated the assignation of a position in the normal distribution to a contig. For example, if more than 2 contigs contain 4 SNPs, there is no reliable way to discriminate between them and the problem gets worse when the number of contigs with the same number of SNPs increases. Hence, we added a feature to SDM to specify the type of cross before defining the candidate mutations. 
+The causal mutation estimation by SDM was more accurate in back-crosses (bak1-5 mutants and BCF2) than in out-crosses (OCF2 and sup#1). The number of segregating SNPs is lower in back-cross experiments (1 SNP every 65,000 bp) compared to out-crosses (1 SNP every 900 bp) [@Etherington:2014]. The large number of segregating SNPs in out-crosses complicated the assignation of a position in the normal distribution to a contig. For example, if more than 2 contigs contain 4 SNPs, there is no reliable way to discriminate between them and the problem gets worse when the number of contigs with the same number of SNPs increases. Hence, we added a feature to SDM to specify the type of cross before defining the candidate mutations. 
 
-As expected, the approximation to the causal mutation is more accurate in back-cross experiments and the number of candidates oscillates between 4 and 10 (**Table 2**). In our two out-cross examples the number of homozygous SNPs differs; SDM identified the causal mutation position in OCF2 (**Table 2**) even though the number of candidates was greater compared to the back-crosses. However, more than 100 candidate mutations out of several thousand SNPs were proposed for sup#1 in a very small region of the chromosome (100 kb) and the actual causal SNP was not in that list (**Table 2**). Therefore, out-crosses to a reference line would need more filtering steps to reduce the number of SNPs at the starting point as they did in the original report [Uchida:2014]. We can conclude that SDM is a rapid and precise method to perform bulk segregant linkage analysis from back-crossed populations without relying on the disponibility of a reference genome, but we need to be cautious when dealing with out-cross experiments.  
+As expected, the number of candidate positions in back-cross experiments oscillates between 4 and 10 (**Table 2**). In our two out-cross examples the number of homozygous SNPs differs; SDM identified the causal mutation position in OCF2 (**Table 2**) even though the number of candidates was greater compared to the back-crosses. However, more than 100 candidate mutations out of several thousand SNPs were proposed for sup#1 in a very small region of the chromosome (100 kb) and the actual causal SNP was not in that list (**Table 2**). Therefore, out-crosses to a reference line would need more filtering steps to reduce the number of SNPs as they did in the original report [Uchida:2014]. We can conclude that SDM is a rapid and precise method to perform bulk segregant linkage analysis from back-crossed populations without relying on the disponibility of a reference genome, but we need to be cautious when dealing with out-cross experiments.  
 
 
 Conclusions
 ===
 
-Forward genetic screens are very useful to identify genes responsible for particular phenotypes. Thanks to the advances in HTS technologies, mutant genomes sequencing has become quick and unexpensive. However, the mapping-by-sequencing methods available present certain limitations, complicating the mutation identification especially in non-sequenced species. To target this problem, we proposed a fast, reference genome independent method to identify causative mutations. We showed that homozygous SNPs are normally distributed in the mutant genome of back-cross and out-crossed individuals. Based on that idea, we defined a theoretical SNP distribution used by SDM to identify the genomic region where the causative mutation was located. We conclude that SDM is especially sucessful for analysing mutants obtained from a back-cross population. The increase in the number of SNPs in out-cross experiments complicated the genetic analysis and the mutation estimation. Ideally, over the next few years, sequencing costs will decrease and this will allow to sequence every mutant individual from a forward genetic screen. Therefore, we need fast and reliable methods to identify variants bypassing the reference genome assembly step. We now aim to improve and apply SDM in forward genetics screens of species where a reference genome is not yet available. Also, we plan to develop an accessible software that will speed up gene finding in non-sequenced organisms. 
+Forward genetic screens are very useful to identify genes responsible for particular phenotypes. Thanks to the advances in HTS technologies, mutant genomes sequencing has become quick and unexpensive. However, the mapping-by-sequencing methods available present certain limitations, complicating the mutation identification especially in non-sequenced species. To target this problem, we proposed a fast, reference genome independent method to identify causative mutations. We showed that homozygous SNPs are normally distributed in the mutant genome of back-cross and out-crossed individuals. Based on that idea, we defined a theoretical SNP distribution used by SDM to identify the genomic region where the causative mutation was located. We conclude that SDM is especially sucessful for analysing mutants obtained from a back-cross population. The increase in the number of SNPs in out-cross experiments complicated the genetic analysis and the mutation estimation. Ideally, over the next few years, sequencing costs will decrease and this will allow to sequence every mutant individual from a forward genetic screen. Therefore, we need fast and reliable methods to identify variants bypassing the reference genome assembly step. We now aim to improve and apply SDM in forward genetics screens of species where a reference genome is not yet available. We plan to develop an accessible software that will speed up gene finding in non-sequenced organisms. 
 
+Tables
+===
 
-#Figures
+Tables1.md
 
-
-**Figure 1.** SDM percentage of deviation from expected location of the causal mutation. **(A)** The deviation is a measure of the difference between the expected mutation position and the candidate position predicted by SDM normalised by the model genome lenght. **(B)** 5 replicates of each model genome were created and results are shown as mean ± SD.  Genome size range from 1 to 15 Mb and two contig sizes were also analysed (approximately 700 contigs in light blue and 1300 contigs in dark blue). **(C)** 5 replicates of each model genome were created and results are shown as mean ± SD. The whole chromosome I from *Arabidopsis* was used as a model genome and three contig sizes were analysed (approximately 1000 contigs in light blue, 2000 contigs in dark blue and 3000 contigs in orange)
-
-**Figure 2.** Importance of filtering step based on Hom/het ratio in model genomes. The expected ratio was measured in the corretly ordered fragments. The hypothetical ratio was measured in the post SDM contig order.  
-
-**Figure 3.** Identification of high homozygous SNP density peaks surrounding the causal mutation in 5 independent studies. **(A)** Overlapping homozygous, heterozygous SNP densities and ratios for OCF2, BCF2, bak1-5 mob1/mob2 and sup#1 **(B)** Standard pipeline for sequence alignment and SNP calling in forward genetics screens in *Arabipdopsis thaliana*.
-
-**Figure 4.** Measurement of the correlation of the homozygous SNP density to a normal distribution in back-cross and out-cross experiments by probability (Q-Q) plots. Simple linear regression was used to determine the relationship.
-
-**Figure 5.** Simplified pipeline for mutant identification by SDM from sequencing reads. **(A)** Prior to running SDM. FastQ reads are subjected to a quality filtering step followed by a simple reference independent contig assembly. **(B)** SDM pre-filtering step to remove centromeric variability and parental mutations. Hom/het ratios are calculated. **(C)** SDM workflow. If required, contigs with a ratio below the threshold (25% of the maximum ratio) are not further considered in the analysis. Contig sorting based on normalised homozygous SNP density and plotting. 
-
-**Figure 6.** Identification by SDM of genomic regions carrying causal mutations for 5 different and independent mutants (OCF2, BCF2, bak1-5 mob1/mob2 and sup#1). The expected ratio was measured in the corretly ordered fragments. The hypothetical ratio was measured in the post SDM contig order. Programme was run twice with and without pre-filtering step. 
-
-**Figure 1**
-![](Fig1/Fig1.png)
-
-**Figure 2**
-![](Fig2/Ratios.png)
-
-**Figure 3**
-![](Fig3/densities.png)
-
-**Figure 4**
-![](Fig4/qqplotsmall.png)
-
-**Figure 5**
-![](Fig5/pipeline2.png)
-
-**Figure 6**
-![](Fig6/ratiossdm2.png)
-
-
-#Aditional figures 
-
-**Additional figure 1** (A) Simplified diagram of model genome creation. (B) The homozygous to heterozygous SNP ratio is calculated by fragment. The absolute number of homozygous SNPs in a fragment plus 1 are divided by the absolute number of heterozygous SNPs in the same fragment. 
-
-**Additional figure 2** Differences in the Hom/het ratio density by adding a different factor (1, 0.1 and 0.0.1) to numerator and denominator. 
-
-**Additional figure 3** Change in the homozygous SNP density plot before filtering, after background SNPs filtering and centromere removal.
-
-**Additional figure 4** Recovery of SNP density correlation to normal after SDM for 5 different and independent mutants (OCF2, BCF2, bak1-5 mob1/mob2 and sup#1). Simple linear regression was used to determine the relationship. Programme was run twice with and without pre-filtering step. 
-
-**Additional figure 1.** 
-![](Additional/add1.png)
-
-**Additional figure 2** 
-![](Additional/add2_comparison_ratios.png)
-
- **Additional figure 3** 
-![](Additional/addit3.png)
-
-**Additional figure 4** 
-![](Additional/qqplotsdm.png)
-
-
-
-
-
-[Tables.md](https://github.com/pilarcormo/Preprint/blob/master/Tables.md)
+**Table 1**. Measurement of the correlation between the homozygous SNP density in several out-cross and back-cross experiments and a theoretical normal distribution. Analysis of variance and distribution shape. 
 
 <table>
   <tr><th>Sample <th>Number of homozygous SNPs</th><th>Chromosome</th><th>Correlation with normal distribution (r<sup>2</sup>)</th><th>Standard deviation (Mb)</th><th>Kurtosis</th><th>Skewness</th></tr>
@@ -222,8 +159,7 @@ Forward genetic screens are very useful to identify genes responsible for partic
   
 </table>
 
-
-**Table 1**. Measurement of the correlation between the homozygous SNP density in several out-cross and back-cross experiments and a theoretical normal distribution. Analysis of variance and distribution shape. 
+**Table 2**. Hypothetical candidate mutations obtained by SDM in out-cross and back-cross experiments and real mutation positions. (For simplicity, the 151 candidate positions predicted for sup#1 were not itemised here).
 
 <table>
   <tr><th>Sample <th>Type of cross</th><th>Chromosome</th><th>Mutated gene and position</th><th>Number of candidate mutations</th><th>Hypothetical candidate mutations from SDM</tr></th>
@@ -280,10 +216,67 @@ Forward genetic screens are very useful to identify genes responsible for partic
    <tr><td> sup#1</td> <td> Out-cross</td> <td> 4</td><td>SGT1b (6851277..6853860)<td>151<td> 7910430..8076837</td>    
 </table>
 
-**Table 2**. Hypothetical candidate mutations obtained by SDM in out-cross and back-cross experiments and real mutation positions. (For simplicity, the 151 candidate positions predicted for sup#1 were not itemised here).
 
 
+figures.md
+**Figure 1**
+![](Fig1/Fig1.png)
 
+**Figure 2**
+![](Fig2/Ratios.png)
+
+**Figure 3**
+![](Fig3/densities.png)
+
+**Figure 4**
+![](Fig4/qqplotsmall.png)
+
+**Figure 5**
+![](Fig5/pipeline2.png)
+
+**Figure 6**
+![](Fig6/ratiossdm2.png)
+
+figures_descriptions.md
+
+**Figure 1.** SDM percentage of deviation from expected location of the causal mutation. **(A)** The deviation is a measure of the difference between the expected mutation position and the candidate position predicted by SDM normalised by the model genome lenght. **(B)** 5 replicates of each model genome were created and results are shown as mean ± SD.  Genome size range from 1 to 15 Mb and two contig sizes were also analysed (approximately 700 contigs in light blue and 1300 contigs in dark blue). **(C)** 5 replicates of each model genome were created and results are shown as mean ± SD. The whole chromosome I from *Arabidopsis* was used as a model genome and three contig sizes were analysed (approximately 1000 contigs in light blue, 2000 contigs in dark blue and 3000 contigs in orange)
+
+**Figure 2.** Importance of filtering step based on Hom/het ratio in model genomes. The expected ratio was measured in the corretly ordered fragments. The hypothetical ratio was measured in the post SDM contig order.  
+
+**Figure 3.** Identification of high homozygous SNP density peaks surrounding the causal mutation in 5 independent studies. **(A)** Overlapping homozygous, heterozygous SNP densities and ratios for OCF2, BCF2, bak1-5 mob1/mob2 and sup#1 **(B)** Standard pipeline for sequence alignment and SNP calling in forward genetics screens in *Arabipdopsis thaliana*.
+
+**Figure 4.** Measurement of the correlation of the homozygous SNP density to a normal distribution in back-cross and out-cross experiments by probability (Q-Q) plots. Simple linear regression was used to determine the relationship.
+
+**Figure 5.** Simplified pipeline for mutant identification by SDM from sequencing reads. **(A)** Prior to running SDM. FastQ reads are subjected to a quality filtering step followed by a simple reference independent contig assembly. **(B)** SDM pre-filtering step to remove centromeric variability and parental mutations. Hom/het ratios are calculated. **(C)** SDM workflow. If required, contigs with a ratio below the threshold (25% of the maximum ratio) are not further considered in the analysis. Contig sorting based on normalised homozygous SNP density and plotting. 
+
+**Figure 6.** Identification by SDM of genomic regions carrying causal mutations for 5 different and independent mutants (OCF2, BCF2, bak1-5 mob1/mob2 and sup#1). The expected ratio was measured in the corretly ordered fragments. The hypothetical ratio was measured in the post SDM contig order. Programme was run twice with and without pre-filtering step. 
+
+
+Additional_fig_descriptions.md
+#Additional figures
+
+**Additional figure 1** (A) Simplified diagram of model genome creation. (B) The homozygous to heterozygous SNP ratio is calculated by fragment. The absolute number of homozygous SNPs in a fragment plus 1 are divided by the absolute number of heterozygous SNPs in the same fragment. 
+
+**Additional figure 2** Differences in the Hom/het ratio density by adding a different factor (1, 0.1 and 0.0.1) to numerator and denominator. 
+
+**Additional figure 3** Change in the homozygous SNP density plot before filtering, after background SNPs filtering and centromere removal.
+
+**Additional figure 4** Recovery of SNP density correlation to normal after SDM for 5 different and independent mutants (OCF2, BCF2, bak1-5 mob1/mob2 and sup#1). Simple linear regression was used to determine the relationship. Programme was run twice with and without pre-filtering step. 
+Additional_figures.md
+**Additional figure 1.** 
+![](Additional/add1.png)
+
+**Additional figure 2** 
+![](Additional/add2_comparison_ratios.png)
+
+ **Additional figure 3** 
+![](Additional/addit3.png)
+
+**Additional figure 4** 
+![](Additional/qqplotsdm.png)
+
+
+References.md
 #References
 1. Page DR, Grossniklaus U: The art and design of genetic screens: Arabidopsis thaliana. Nat Rev Genet 2002, 3:124–36.
 

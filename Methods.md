@@ -5,26 +5,33 @@ Methods
 
 We created different model genomes (**Additional 1**) based on _Arabidopsis thaliana_ chromosome I (34.9 Mb). FASTA files for Arabidopsis chromosome sequences are available at The Arabidopsis Information Resource (TAIR), on [www.arabidopsis.org](www.arabidopsis.org) [@Lamesch:2012aa].
 
-To identify the causal mutation in the model genomes, we used idealised SNP distributions. Homozygous SNPs followed a normal distribution, in which the mean value corresponded to the causal mutation position.  Heterozygous SNPs followed a uniform distribution, with no relevant contribution to the general SNP density. We created a VCF (Variant Call Format) file containing the SNP densities that give rise to these SNP distributions. Then, to emulate real data, we divided the model genome into fragments, which mimic contigs assembled from high-throughput sequencing (HTS) reads. A FASTA file with the unordered contigs and the VCF with the SNPs on each contig are the starting point to test our method (**Additional 1**).  In the model, each SNP is given an allele frequency of exactly 0.5 (heterozygous) or 1.0 (homozygous). 
+To identify the causal mutation in the model genomes, we used idealised SNP distributions. We observed that Homozygous SNPs frequency around the causative mutation followed a normal distribution (section XX), in which the mean value corresponded to the causal mutation position.  Heterozygous SNPs followed a uniform distribution, with no specific contribution to the general SNP density. We created a VCF (Variant Call Format (cite) ) file containing SNPs at positions such that the densities give rise to these SNP distributions. Then, to emulate real data, we divided the model genome into fragments, which mimic contigs assembled from high-throughput sequencing (HTS) reads. A FASTA file with the unordered contigs and the VCF with the SNPs on each contig are the starting point to test our method (**Additional 1**).  In the model, each SNP is given an allele frequency of exactly 0.5 (heterozygous) or 1.0 (homozygous). Code for this is available at 
 
 ####2. SDM implementation
 
-SDM is only available to use in a command-line environment. The Ruby (v2.0.0) source code is available at [https://github.com/pilarcormo/SNP_distribution_method](https://github.com/pilarcormo/SNP_distribution_method). 
+SDM is only available to use in a command-line environment. The Ruby source code is available at [https://github.com/pilarcormo/SNP_distribution_method](https://github.com/pilarcormo/SNP_distribution_method). 
 
-SDM calculates the homozygous SNPs to heterozygous SNPs (Hom/het) ratio (**Additional 1B**), adding 1 to both enumerator and denominator to avoid diving by 0. The ratio is measured in each fragment so that it can be used as a score. These scores are used as a first pre-filtering step. When the ratio score in a fragment is below a given threshold, the fragment is not further considered in the analysis. 
++SDM calculates the homozygous SNPs to heterozygous SNPs (Hom/het) ratio (**Additional 1B**), adding 1 to both enumerator and denominator to avoid diving by 0. The ratio is measured in each fragment [DM 2] so that it can be used as a score. These scores are used as a first pre-filtering step. When the ratio score in a fragment is below a given threshold, the fragment is not further considered in the analysis. 
++
++[DM 2] - if this is the average ratio over the whole contig say so explicitly. Basically I don't know how to calculate the score for each contig here... Also if there are not hom or het snps on a fragment, you get a ratio of 1? Or is it filtered out.
 
-To sort the high-scored contigs, SDM normalises the homozygous SNP density dividing the absolute number of SNPs in each contig by the number of nucleotides (length). Then, SDM sorts the fragments by their normalised SNP density values so that they follow a Gaussian distribution. It starts by taking the 2 lowest values that should be at both tails of the distribution. Following this fashion, we obtained the right and left sides that build up the distribution. In the tails, we have a high density of contigs with the same SNP density, so with our approach we cannot elucidate their order. However, the contigs surrounding the causal mutation are low in number and should be correctly ordered.  
-
++To sort the high-scored contigs, SDM normalises the homozygous SNP density dividing the absolute number of SNPs in each contig by the number of nucleotides (length). Then, SDM sorts the fragments by their normalised SNP density values so that they follow a Normal distribution. It starts by taking the 2 lowest values that should be at both tails of the distribution. Following this fashion, we obtained the right and left sides that build up the distribution. In the tails, we have a high density of contigs with the same SNP density, so with our approach we cannot elucidate their order. However, the contigs surrounding the causal mutation are low in number and should be correctly ordered. [DM 3]
++
++
++[DM 3] - would go well as a workflow diagram.
 ####3. Data sets
-We used 5 different sets of Illumina sequence reads from 4 recent out-cross [@Galvão et al. 2012], [@Uchida et al. 2014] and back-cross experiments [@Allen et al. 2013], [@Monaghan et al. 2014] in *Arabidopsis thaliana* backgrounds. _Arabidopsis thaliana_ genome is small with a well-described the genetic variation and a small content of repeats, making it an ideal model organism.
+We used five different sets of Illumina sequence reads from 4 recent out-cross [@Galvão et al. 2012], [@Uchida et al. 2014] and back-cross experiments [@Allen et al. 2013], [@Monaghan et al. 2014] in *Arabidopsis thaliana* backgrounds. _Arabidopsis thaliana_ genome is small with a well-described the genetic variation and a small content of repeats, making it an ideal model organism.
 
-The first set of reads (**OCF2**) was obtaind  by sequencing a mutant pool of 119 F2 mutants generated by out-crossing a Col-0 background mutant to Ler-0. They also sequenced the parental lines and performed conventional SHOREmap [@Schneeberger:2009] to identify the mutation [@Galvao:2012].
+The first set of reads (**OCF2**) was obtained  by sequencing a mutant pool of 119 F2 mutants generated by out-crossing a Col-0 background mutant to Ler-0. They also sequenced the parental lines and performed conventional SHOREmap [@Schneeberger:2009] to identify the mutation [@Galvao:2012].
 
 In the second study (**BCF2** dataset) [@Allen et al. 2013], they back-cross the mutant to the non-mutagenized parental line. A pool of 110 mutant individuals showing the mutant phenotype and the parental line were sequenced. They used different SNP identification methods that produced highly similar outcomes (NGM, SHOREmap, GATK and samtools) [@Austin:2011], [@Schneeberger:2009], [@DePristo:2011aa], [@Li:2009aa].
 
-We analysed two different and independent mutants (**mob1** and **mob2**) [@Monaghan:2014]. The mutants (in the Col-0 ecotype) were back-crossed to the parental line and sequenced. They used CandiSNP [@Etherington:2014] to identify the causal mutations. 
+We analysed two different and independent mutants (**mob1** and **mob2**) [@Monaghan:2014]. [DM 5] The mutants (in the Col-0 ecotype) were back-crossed to the parental line and sequenced. They used CandiSNP [@Etherington:2014] to identify the causal mutations
++[DM 5] Not sure how these are different from the others. Can you mention what the mutant screen was looking for and what the expected SNP density is (ie it would be higher in Col / Ler crosses than the Col / Col crosses)
 
-The last dataset we used (**sup#1** dataset) was obtained by outcrossing a Arabidopsis Wassilewskija (Ws-0) background mutant to Col-0 wild-type plants followed by sequecing of 88 F2 individuals and Ws and Col as parental lines. They described a pipeline to identify the causal mutation based on the peaks obtained by plotting ratios of homozygous SNPs to heterozygous SNPs  [@Uchida et al. 2014].
+The last dataset we used (**sup#1** dataset) was obtained by outcrossing a Arabidopsis Ws-0 background mutant to Col-0 wild-type plants followed by sequecing of 88 F2 individuals and Ws and Col as parental lines. They described a pipeline to identify the causal mutation based on the peaks obtained by plotting ratios of homozygous SNPs to heterozygous SNPs  [@Uchida et al. 2014].
+
+TABLE OF ALL THIS
 
 ####4. Read mapping and SNP calling
 
@@ -32,9 +39,16 @@ Mutant and parental reads were subjected to the same variant calling approach.
 
 The quality of the deep sequencing was evaluated using FastQC 0.11.2 (http://www.bioinformatics.babraham.ac.uk/projects/fastqc/). Reads were trimmed and quality filtered by Trimmomatic v0.33 [@Bolger:2014aa]. We performed a sliding window trimming, cutting once the average Phred quality fell below 20 in the window.
 
-The clean reads were aligned to *Arabidopsis thaliana* reference genome (TAIR10)[@Lamesch:2012aa] with BWA-MEM long-read alignment using bwa-v0.7.5a [@Li:2010]. The resultant alignment (sam) files were converted to sorted bam files using the samtools package v1.0. We used samtools mpileup command to convert bam files into pileup files.
+The trimmed reads were aligned to *Arabidopsis thaliana* reference genome (TAIR10)[@Lamesch:2012aa] with BWA-MEM long-read alignment using bwa-v0.7.5a [@Li:2010]. The resultant alignment (SAM) [DM 7] files were converted to sorted bam files using the samtools package v1.0. We used samtools mpileup command to convert bam files into pileup files. [DM 8] 
++
++[DM 7] acronyms in CAPS
++[DM 8] Provide scripts or command lines
++
++To call SNPs we used the mpileup2snp command from VarScan v2.3.7 (http://varscan.sourceforge.net) [@Koboldt:2012aa], [@Koboldt:2009aa] to get VCF 4.1 output. A default allele frequency of 0.8 was used to clasify the SNPs as homozygous. [DM 9]
++
++[DM 9] Far too sparse to reproduce this result.
 
-To call SNPs we used the mpileup2snp command from VarScan v2.3.7 (http://varscan.sourceforge.net) [@Koboldt:2012aa], [@Koboldt:2009aa] to get VCF 4.1 output. A default allele frequency of 0.8 was used to clasify the SNPs as homozygous. 
+
   
 ####5. Using real SNP densities in the model 
 
@@ -48,7 +62,9 @@ c. Density plot with the hypothetical homozygous and  heterozygous SNP densities
 d. Density plot to analyse the deviation of the hypothetical ratios after SDM from the theoretical expected ratios 
 e. Text file with the candidate contigs and the SNP positions they contain. 
 
-We used the Kernel Density Estimation in R [@R_language] to identify the high homozygous SNP density areas in the chromosomes. Then, to test the normal correlation of the SNP distributions we used the qqplot function available in R. We measured the kurtosis and skewness of the SNP distributions by using the package 'moments' [@momentsR].
+We used the Kernel Density Estimation in R [@R_language] to identify the high homozygous SNP density areas in the chromosomes. Then, to test the normal correlation of the SNP distributions we used the qqplot function available in R. We measured the kurtosis and skewness of the SNP distributions by using the package 'moments' [@momentsR]. [DM 10]
++
++[DM 10] This reads like the brief description of methods that acts as the introduction of the results sections . I couldn't faithfully reproduce what you did from this.
 
 ####5. Filtering steps
 

@@ -36,9 +36,13 @@
 % }
 % \makeatother
 
+\usepackage[usenames, dvipsnames]{color}
+\color{Gray}
+
+
 % Set colour of links to black so that they don't show up when printed
 \usepackage{hyperref}
-\hypersetup{colorlinks=true, linkcolor=black}
+\hypersetup{colorlinks=true, urlcolor=Gray, citecolor=Gray, linkcolor=Gray, frenchlinks=true}
 
 % Tables
 \usepackage{booktabs}
@@ -46,6 +50,10 @@
 \usepackage{array}
 \newcolumntype{x}[1]{%
 >{\centering\arraybackslash}m{#1}}%
+
+\DeclareMathSizes{12}{12}{12}{12}
+
+
 
 % % Allow for long captions and float captions on opposite page of figures 
 % \usepackage[rightFloats, CaptionBefore]{fltpage}

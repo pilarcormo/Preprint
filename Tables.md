@@ -1,4 +1,4 @@
-**Table 1**. Forward genetics screens studies developed in *Arabidopsis thaliana* backgrounds and the technologies used to identify the phenotype-altering SNP.
+**Table 1**. Forward genetics screens developed in *Arabidopsis thaliana*, the lines involved in the crossing and the technologies used to identify the causative mutation in each case.
 
 Study|Sample|Mutant||Wild-type|SNP caller|
 -----|-----|-----|-----|-----|-----|-----:
@@ -15,7 +15,7 @@ Uchida et al.|sup#1|Ws-0|x|Col-0|Ratios of homozygous
 |2014|||||to heterozygous SNPs
 |||||
 
-**Table 2**. Measurement of the correlation between the homozygous SNP density in several out-cross and back-cross experiments and a theoretical normal distribution. Analysis of variance and distribution shape. 
+**Table 2**. Measurement of the homozygous SNP density correlation to a theoretical normal distribution in several out-cross and back-cross experiments. Analysis of variance and distribution shape (kurtosis and skewness). 
 
 Sample|SNPs|Chr|r2|SD (Mb)|Kurtosis|Skewness
 -----|-----|-----|-----|-----|-----|-----:

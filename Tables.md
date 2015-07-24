@@ -58,10 +58,11 @@ sup#1|Out-cross|4|SGT1b|151|7910430..8076837
 
 ||OCF2|BCF2|mob1|mob2|sup#1
 -----|-----|-----|-----|-----|-----:
+No filtering|yes|yes|yes|no|no
 1%|yes|yes|yes|no|yes
-5%|yes|no|yes|no|yes
+5%|yes|yes|yes|no|no
 10%|yes|yes|yes|yes|no
-20%|yes|yes|no|no|no
+20%|yes|yes|yes|yes|no
 
 
 

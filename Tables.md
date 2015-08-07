@@ -6,16 +6,24 @@ Galvão et al.|OCF2|Col-0|x|Ler-0|SHOREmap
 |2012||||
 |||||
 Allen et al.|BCF2|Col-0|x|Col-0|NGM, SHOREmap,
-|2013|||||GATK and samtools
+|2013|||||GATK and SAMtools
 |||||
 Monaghan et al.|bak1-5 mob1|Col-0|x|Col-0|CandiSNP
 |2014|and mob2|||
 |||||
-Uchida et al.|sup#1|Ws-0|x|Col-0|Ratios of homozygous  
+Uchida et al.|sup#1|Ws-0|x|Col-0|Ratio of homozygous  
 |2014|||||to heterozygous SNPs
-|||||
 
-**Table 2**. Measurement of the homozygous SNP density correlation to a theoretical normal distribution in several out-cross and back-cross experiments. Analysis of variance and distribution shape (kurtosis and skewness). 
+**Table 2**. Out-crossed and back-crossed populations, chromosome where the mutation was found and mutated gene location.
+
+Sample|Cross|Chr|Mutated gene 
+-----|-----|-----|-----:
+ OCF2|Out-cross|2|SOC1(~18.8 Mb)
+BCF2|Back-cross|3|HASTY (~14.05 Mb)
+mob1/mob2|Back-cross|5|CPK28 (~26.45 Mb)
+sup#1|Out-cross|4|SGT1b (~6.85 Mb)
+
+**Table 3**. Measurement of the homozygous SNP density correlation to a theoretical normal distribution in several out-cross and back-cross experiments. Analysis of variance and distribution shape (kurtosis and skewness). 
 
 Sample|SNPs|Chr|r2|SD (Mb)|Kurtosis|Skewness
 -----|-----|-----|-----|-----|-----|-----:
@@ -25,44 +33,35 @@ mob1|25|5|0.944|7.20|2.69|-0.240
 mob2|41|5|0.894|3.71|2.37|0.445
 sup#1|4633|4|0.976|3.66|3.50|0.370  
 
-**Table 3**. Hypothetical candidate mutations obtained by SDM in out-cross and back-cross experiments and real mutation positions. (For simplicity, the 151 candidate positions predicted for sup#1 were not itemised here).
 
-Sample|Cross|Chr|Mutated gene|Candidates|Positions
+**Table 4**. SDM mutant identification success when using an automatic filtering approach to discard contigs. 3 different contig sizes analysed, the percentages of the maximum ratio used as threshold are specified. In brakets, the number of contigs discarded out of the total number of contigs. 
+
+
+Sample|Cross|Chr|Contig size (kb)|Threshold|Identification
 -----|-----|-----|-----|-----|-----|-----:
-||||||9773, 22178, 23681, 33496
-||||||55086, 112447, 11857798
-||||||11905532, 11905533, 11910437, 
-OCF2|Out-cross|2|SOC1|28|11958727, 17312141, 17360989, 
-||||(~18.8 Mb)||17363726, 17418367, 17421593
-||||||17435968, 18774111, 18779106, 
-||||||**18808927, 18816626**,18908972,
-||||||18946473, 19181359, 19237195
-||||||19308373  19309911, 19352435 
+||||2-4|5% (230/6568)|**Unsucessful**
+OCF2|Out-cross|2|5-10|3% (189/2634)|Sucessful
+||||10-20|3% (186/1328)|Sucessful
 ||||||
-BCF2|Back-cross|3|HASTY|4|**1405085**, 4919240, 6035523
-||||(~14.05 Mb)||10163762
+||||2-4|35% (7807/7821)|Sucessful
+BCF2|Back-cross|3|5-10|21% (108/3130)|Sucessful
+||||10-20|21% (95/1562)|Sucessful
 ||||||
-mob1|Back-cross|5|CPK28|9 |11186761, 11202828, 11211636, 
-|||(~26.45 Mb)||11218614, 18036595, 18155812 
-||||||**26457834, 26458077, 26474069**
+||||2-4|17% (254/8992)|**Unsucessful**
+mob1|Back-cross|5|5-10|15% (239/3603)|Sucessful
+||||10-20|15% (220/1805)|Sucessful
 ||||||
-||||||18143387, 18218877, 18251689,
-mob2|Back-cross|5|CPK28|10|18261108, 22049050, 22066915, 
-|||(~26.45 Mb)||**26560691, 26626055, 26710709,**
-||||||**26716839**
+||||2-4|35% (8950/8994)|Sucessful
+mob1|Back-cross|5|5-10|21% (195/3582)|Sucessful
+||||10-20|21% (189/1804)|Sucessful
 ||||||
-sup#1|Out-cross|4|SGT1b|151|7910430..8076837
-||||(~6.85 Mb)||
+||||2-4|3% (228/6201)|Sucessful
+sup#1|Out-cross|4|5-10|3% (153/2491)|Sucessful
+||||10-20|3% (93/1240)|Sucessful
 
-**Table 4**.SDM mutation identification success when using different percentages of the maximum ratio as threshold to discard contigs. Four percentages were analysed for each sample. 
 
-||OCF2|BCF2|mob1|mob2|sup#1
------|-----|-----|-----|-----|-----:
-No filtering|yes|yes|yes|no|no
-1%|yes|yes|yes|no|yes
-5%|yes|yes|yes|no|no
-10%|yes|yes|yes|yes|no
-20%|yes|yes|yes|yes|no
+
+
 
 
 

@@ -19,6 +19,7 @@ java -jar Trimmomatic-0.33/trimmomatic-0.33.jar PE reads_R1.fq reads_R2.fq paire
 ```
 bwa index TAIR10.fa
 ```
+
 2. Map the reads to reference genome with BWA
 
 ```
@@ -27,6 +28,7 @@ task :bwa  do
       sh 'bwa mem TAIR10.fa paired_R1.fq paired_R2.fq > alignment.sam'
 end
 ```
+
 3. Convert the respective SAM file to BAM file and sort the BAM file using samtools
 
 ```
@@ -44,6 +46,7 @@ task :pileup => ["bam"] do
         sh 'samtools mpileup -B -f TAIR10.fa alignment.bam > SNPs.pileup'
 end
 ```
+
 5. Call SNPs using VarScan and record them in a VCF4.1
 file 
 

@@ -1,6 +1,9 @@
-% Table of contents formatting
-\renewcommand{\contentsname}{Table of Contents}
-\setcounter{tocdepth}{1}
+% % Table of contents formatting
+% \renewcommand{\contentsname}{Table of Contents}
+% \setcounter{tocdepth}{1}
+
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
  
 % Headers and page numbering 
 \usepackage{fancyhdr}
@@ -51,9 +54,7 @@
 \newcolumntype{x}[1]{%
 >{\centering\arraybackslash}m{#1}}%
 
-\DeclareMathSizes{12}{12}{12}{12}
-
-
+\DeclareMathSizes{14}{14}{14}{14}
 
 % % Allow for long captions and float captions on opposite page of figures 
 % \usepackage[rightFloats, CaptionBefore]{fltpage}

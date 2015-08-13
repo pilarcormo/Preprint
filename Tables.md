@@ -1,3 +1,6 @@
+Tables
+===
+
 **Table 1**. Forward genetics screens developed in *Arabidopsis thaliana*, the lines involved in the crossing and the technologies used to identify the causative mutation in each case.
 
 Study|Sample|Mutant||Wild-type|SNP caller|

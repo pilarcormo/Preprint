@@ -23,13 +23,16 @@ Model genomes directories contain a FASTA file with the correct fragment order, 
 
 [**Fig.1**](https://github.com/pilarcormo/Preprint/blob/master/Fig1/workflow.png) shows the SNP Distribution Method (SDM) workflow.
 
-The first step in the pipeline is the homozygous to heterozygous SNPs ratio calculation per contig. The ratio of homozygous to heterozygous SNPs on a contig n is defined as the sum of all the homozygous SNPs on n plus 1 divided by the sum of all the heterozygous SNPs on n plus 1:
+The first step in the pipeline is the homozygous to heterozygous SNPs ratio calculation per contig. The ratio of homozygous to heterozygous SNPs on a contig n is defined as the sum of all the homozygous SNPs on n plus 1 divided by the sum of all the heterozygous SNPs on n plus 1. This factor of '1'
 
 
 
 
-
-$Ratio_{n} = \frac{(\sum Hom) + 1}{(\sum Het) + 1}$
+$$
+\begin{aligned}
+Ratio_{n} = \frac{(\sum Hom) + 1}{(\sum Het) + 1}
+\end{aligned}
+$$
 
 
 
@@ -39,7 +42,12 @@ The effect of contig length on SNP density is reduced by normalising the SNP den
 
 
 
-$Score_{n} = \frac{\sum Hom}{length_{n}}$
+$$
+\begin{aligned}
+Score_{n} = \frac{\sum Hom}{length_{n}}
+\end{aligned}
+$$
+
 
 
 
@@ -57,7 +65,11 @@ This value was compared to the initial mean of the homozygous SNP distribution t
 
 
 
-$Deviation = \frac{|Candidate - Causative|}{Length}$
+$$
+\begin{aligned}
+Deviation = \frac{|Candidate - Causative|}{Length}
+\end{aligned}
+$$
 
 
 

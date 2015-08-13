@@ -2,6 +2,8 @@ Other information
 ==
 
 
+SDM was concieved as an quick alternative to find causative mutations in bulk-segregant analysis in unordered genomes
+
 sup1
 
 (We crossed sup#1 uni-1DT/+ plants with Col wild-type plants, and F2 seeds were obtained from sup#1/+ uni-1DT/+ Ws/Col F1 hybrids. We next collected 88 kanamycin-resistant F2 individuals with wild-type morphologies, 

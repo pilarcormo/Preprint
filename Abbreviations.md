@@ -35,4 +35,4 @@ Abbreviations
 
 **QC**: Quality control
 
-**Ws-0**: Wassilewskija-0
+**Ws**: Wassilewskija

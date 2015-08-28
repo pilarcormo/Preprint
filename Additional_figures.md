@@ -1,7 +1,21 @@
 Additional figures
 ===
-![](Additional/snp_calling.png)
-![](Additional/factor.png)
+
+\begin{center}
+Additional Figure 1 
+\end{center}
+
+![](Additional/Add1_worflow_methods.png)
+\newpage
+\begin{center}
+Additional Figure 2 
+\end{center}
+\newpage
+![](Additional/add2_comparison_ratios.png)
+\newpage
+\begin{center}
+Additional Figure 3 
+\end{center}
 ![](Additional/addit3.png)
 
 

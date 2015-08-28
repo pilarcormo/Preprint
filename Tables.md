@@ -1,32 +1,25 @@
 Tables
 ===
 
-**Table 1**. Forward genetics screens developed in *Arabidopsis thaliana*, the lines involved in the crossing and the technologies used to identify the causative mutation in each case.
+**Table 1**. Forward genetics screens developed in *Arabidopsis thaliana*, the lines involved in the crossing and the technologies used to identify the causative mutation in each case. The chromosome where the mutation was found and the mutated gene location are also specified.
 
-Study|Sample|Mutant||Wild-type|SNP caller|
------|-----|-----|-----|-----|-----|-----:
-Galvão et al.|OCF2|Col-0|x|Ler-0|SHOREmap
-|2012||||
+Sample|Mutant||Wild-type|Method|Chr|Gene
+-----|-----|-----|-----|-----|-----|-----|-----:
+OCF2|Col-0|x|Ler-0|SHOREmap|2|SOC1
+|||||||(~18.8 Mb)
+||||||
+BCF2|Col-0|x|Col-0|NGM, SHOREmap,|3|HASTY
+|||||GATK and SAMtools||(~14.05 Mb)
 |||||
-Allen et al.|BCF2|Col-0|x|Col-0|NGM, SHOREmap,
-|2013|||||GATK and SAMtools
-|||||
-Monaghan et al.|bak1-5 mob1|Col-0|x|Col-0|CandiSNP
-|2014|and mob2|||
-|||||
-Uchida et al.|sup#1|Ws-0|x|Col-0|Ratio of homozygous  
-|2014|||||to heterozygous SNPs
+mob1/|Col-0|x|Col-0|CandiSNP|5|CPK28 
+mob2||||||(~26.45 Mb)
+||||||
+sup#1|Ws-0|x|Col-0|Ratio of homozygous|4|SGT1b  
+|||||to heterozygous SNPs||(~6.85 Mb) 
 
-**Table 2**. Out-crossed and back-crossed populations, chromosome where the mutation was found and mutated gene location.
 
-Sample|Cross|Chr|Mutated gene 
------|-----|-----|-----:
- OCF2|Out-cross|2|SOC1(~18.8 Mb)
-BCF2|Back-cross|3|HASTY (~14.05 Mb)
-mob1/mob2|Back-cross|5|CPK28 (~26.45 Mb)
-sup#1|Out-cross|4|SGT1b (~6.85 Mb)
 
-**Table 3**. Measurement of the homozygous SNP density correlation to a theoretical normal distribution in several out-cross and back-cross experiments. Analysis of variance and distribution shape (kurtosis and skewness). 
+**Table 2**. Measurement of the homozygous SNP density correlation to a theoretical normal distribution in several out-cross and back-cross experiments. Analysis of variance and distribution shape (kurtosis and skewness). 
 
 Sample|SNPs|Chr|r2|SD (Mb)|Kurtosis|Skewness
 -----|-----|-----|-----|-----|-----|-----:
@@ -37,30 +30,34 @@ mob2|41|5|0.894|3.71|2.37|0.445
 sup#1|4633|4|0.976|3.66|3.50|0.370  
 
 
-**Table 4**. SDM mutant identification success when using an automatic filtering approach to discard contigs. 3 different contig sizes analysed, the percentages of the maximum ratio used as threshold are specified. In brakets, the number of contigs discarded out of the total number of contigs. 
 
 
-Sample|Cross|Chr|Contig size (kb)|Threshold|Identification
------|-----|-----|-----|-----|-----|-----:
-||||2-4|5% (230/6568)|**Unsucessful**
-OCF2|Out-cross|2|5-10|3% (189/2634)|Sucessful
-||||10-20|3% (186/1328)|Sucessful
+\newpage
+
+
+**Table 3**. SDM mutant identification success when using an automatic filtering approach to discard contigs. 3 different contig sizes analysed, the percentages of the maximum ratio used as threshold are specified. In brakets, the number of contigs discarded out of the total number of contigs. 
+
+Sample|Contig size (kb)|Threshold|Identification
+-----|-----|-----|-----|-----:
+||2-4|5% (230/6568)|**Unsucessful**
+OCF2|5-10|3% (189/2634)|Sucessful
+||10-20|3% (186/1328)|Sucessful
 ||||||
-||||2-4|35% (7807/7821)|Sucessful
-BCF2|Back-cross|3|5-10|21% (108/3130)|Sucessful
-||||10-20|21% (95/1562)|Sucessful
+||2-4|35% (7807/7821)|Sucessful
+BCF2|5-10|21% (108/3130)|Sucessful
+||10-20|21% (95/1562)|Sucessful
 ||||||
-||||2-4|17% (254/8992)|**Unsucessful**
-mob1|Back-cross|5|5-10|15% (239/3603)|Sucessful
-||||10-20|15% (220/1805)|Sucessful
+||2-4|17% (254/8992)|**Unsucessful**
+mob1|5-10|15% (239/3603)|Sucessful
+||10-20|15% (220/1805)|Sucessful
 ||||||
-||||2-4|35% (8950/8994)|Sucessful
-mob1|Back-cross|5|5-10|21% (195/3582)|Sucessful
-||||10-20|21% (189/1804)|Sucessful
+||2-4|35% (8950/8994)|Sucessful
+mob2|5-10|21% (195/3582)|Sucessful
+||10-20|21% (189/1804)|Sucessful
 ||||||
-||||2-4|3% (228/6201)|Sucessful
-sup#1|Out-cross|4|5-10|3% (153/2491)|Sucessful
-||||10-20|3% (93/1240)|Sucessful
+||2-4|3% (228/6201)|Sucessful
+sup#1|5-10|3% (153/2491)|Sucessful
+||10-20|3% (93/1240)|Sucessful
 
 
 

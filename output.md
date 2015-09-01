@@ -1,7 +1,7 @@
 \begin{titlepage} \begin{center}
    \vspace*{1cm}
 
-   \large{ \textbf{ \uppercase{ Identification of genomic regions carrying a causal mutation in unordered genomes}}}
+   \LARGE{ \textbf{ \uppercase{ Identification of genomic regions carrying a causal mutation in unordered genomes}}}
 
     \vspace{0.5cm}       
        
@@ -13,7 +13,7 @@
      
 	\vspace{0.5cm}
 	
-	\large{\textbf{ \uppercase{Abstract}}}
+	\textbf{Abstract}
 	 \end{center}	
 	\small{Whole genome sequencing using high-throughput sequencing (HTS) technologies offers powerful opportunities to study genetic variation. Mapping the mutations responsible for different phenotypes is generally an involved and time-consuming process so researchers have developed user-friendly tools for mapping-by-sequencing, yet they are not applicable to organisms with non-sequenced genomes. We introduce SDM (SNP Distribution Method), a reference independent method for rapid discovery of mutagen-induced mutations in typical forward genetics screens. SDM aims to order a disordered collection of HTS reads or contigs such that the fragment carrying the causative mutations can be identified. SDM uses typical distributions of homozygous SNPs that are linked to a phenotype-altering SNP in a non-recombinant region as a model to order the fragments. To implement and test SDM, we created model genomes with SNP density based on}
 		\small{\textit{Arabidopsis thaliana}}
@@ -21,7 +21,7 @@
 	
 \thispagestyle{empty}
 \end{titlepage}
-\newpage \mbox{}
+
 
 
 1. Background 

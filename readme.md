@@ -1,7 +1,7 @@
 README
 ===
 
-[pdf version](output.pdf)
+[FINAL PDF VERSION](output.pdf)
 
 [md version](output.md)
 

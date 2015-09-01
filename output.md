@@ -1,10 +1,27 @@
+\begin{titlepage} \begin{center}
+   \vspace*{1cm}
 
----
-title: "Identification of genomic regions carrying a causal mutation in unordered genomes"
-author: Pilar Corredor-Moreno
-date: September 2015
-abstract: Whole genome sequencing using high-throughput sequencing (HTS) technologies offers powerful opportunities to study genetic variation. Mapping the mutations responsible for different phenotypes is generally an involved and time-consuming process so researchers have developed user-friendly tools for mapping-by-sequencing, yet they are not applicable to organisms with non-sequenced genomes. We introduce SDM (SNP Distribution Method), a reference independent method for rapid discovery of mutagen-induced mutations in typical forward genetics screens. SDM aims to order a disordered collection of HTS reads or contigs such that the fragment carrying the causative mutations can be identified. SDM uses typical distributions of homozygous SNPs that are linked to a phenotype-altering SNP in a non-recombinant region as a model to order the fragments. To implement and test SDM, we created model genomes with SNP density based on *Arabidopsis thaliana* chromosome 1 and analysed fragments with size distribution similar to reads or contigs assembled from HTS sequencing experiments. SDM groups the contigs by their normalised SNP density and arranges them to maximise the fit to the expected SNP distribution. We analysed the procedure in existing data sets by examining SNP distribution in recent out-cross [17, 18] and back-cross experiments [19, 20] in *Arabidopsis thaliana* backgrounds. In all the examples we analysed, homozygous SNPs were normally distributed around the causal mutation. We used the real SNP densities obtained from these experiments to prove the efficiency and accuracy of SDM. The algorithm could successfully identify small sized (10-100 kb) genomic regions containing the causative mutation.
-...
+   \large{ \textbf{ \uppercase{ Identification of genomic regions carrying a causal mutation in unordered genomes}}}
+
+    \vspace{0.5cm}       
+       
+    \small{\textbf{Pilar Corredor-Moreno}}
+     
+    \vspace{0.5cm}
+    
+    \small{\textit{The Sainsbury Laboratory, Norwich Research Park, Norwich, UK, NR4 7UH}}  
+     
+	\vspace{0.5cm}
+	
+	\large{\textbf{ \uppercase{Abstract}}}
+	 \end{center}	
+	\small{Whole genome sequencing using high-throughput sequencing (HTS) technologies offers powerful opportunities to study genetic variation. Mapping the mutations responsible for different phenotypes is generally an involved and time-consuming process so researchers have developed user-friendly tools for mapping-by-sequencing, yet they are not applicable to organisms with non-sequenced genomes. We introduce SDM (SNP Distribution Method), a reference independent method for rapid discovery of mutagen-induced mutations in typical forward genetics screens. SDM aims to order a disordered collection of HTS reads or contigs such that the fragment carrying the causative mutations can be identified. SDM uses typical distributions of homozygous SNPs that are linked to a phenotype-altering SNP in a non-recombinant region as a model to order the fragments. To implement and test SDM, we created model genomes with SNP density based on}
+		\small{\textit{Arabidopsis thaliana}}
+		\small{chromosome 1 and analysed fragments with size distribution similar to reads or contigs assembled from HTS sequencing experiments. SDM groups the contigs by their normalised SNP density and arranges them to maximise the fit to the expected SNP distribution. We analysed the procedure in existing data sets by examining SNP distribution in recent out-cross [17, 18] and back-cross experiments [19, 20] in \textit{Arabidopsis thaliana} backgrounds. In all the examples we analysed, homozygous SNPs were normally distributed around the causal mutation. We used the real SNP densities obtained from these experiments to prove the efficiency and accuracy of SDM. The algorithm could successfully identify small sized (10-100 kb) genomic regions containing the causative mutation.}
+	
+\thispagestyle{empty}
+\end{titlepage}
+\newpage \mbox{}
 
 
 1. Background 
@@ -118,7 +135,7 @@ In the second study (**BCF2** dataset), Allen et al back-crossed the Col-0 mutan
 
 The third study we analysed was also a back-cross experiment. Monaghan et al obtained two different and independent Col-0 mutants (called **bak1-5 mob1** and **bak1-5 mob2**) [20]. The mutants were back-crossed to a parental Col-0 line and sequenced. They used CandiSNP [2] to identify the causal mutation.
 
-The last dataset we used (**sup#1** dataset) was obtained by outcrossing an Arabidopsis Wassilewskija (Ws) mutant to wild-type Col-0  plants followed by sequecing of 88 F2 individuals and Ws and Col as parental lines. Uchida et al described a pipeline to identify the causal mutation based on the peaks obtained by plotting ratios of homozygous SNPs to heterozygous SNPs  [18]. Reads are available at [http://www.ncbi.nlm.nih.gov/sra/?term=DRA000344](http://www.ncbi.nlm.nih.gov/sra/?term=DRA000344)
+The last dataset we used (**sup#1** dataset) was obtained by outcrossing an Arabidopsis Wassilewskija (Ws) mutant to wild-type Col-0  plants followed by sequecing of 88 F2 individuals and Ws and Col as parental lines. Uchida et al described a pipeline to identify the causal mutation based on the peaks obtained by plotting ratios of homozygous SNPs to heterozygous SNPs  [18]. Reads are available at [http://www.ncbi.nlm.nih.gov/sra/?term=DRA000344](http://www.ncbi.nlm.nih.gov/sra/?term=DRA000344).
 
 
 ###2.6. Read mapping and SNP calling
@@ -137,11 +154,11 @@ The whole pipeline used for read mapping and SNP calling is summarised in the **
 
 To improve SDM accuracy and unmask the high homozygous SNP peak, we performed a filtering step to reduce the SNP density in the mutant VCF files. The parental reads were also mapped to the Arabidopsis reference genome as explained in section 2.6 followed by a step of SNP calling. The SNPs present in the non-mutant parental reads were obviously not induced by the mutagen (EMS) and can be considered as 'background' mutations (not responsible for the mutant phenotype). So they can be discarded from the mutant VCF file.
 
-The workflow used to filter reads can be found in the [Supplementary file 2](https://github.com/pilarcormo/Preprint/blob/master/sup_file2.md) and the protocol is available in the README file deposited at [https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads](https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads). The code used is available at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/manage_vcf.rb](https://github.com/pilarcormo/SNP_distribution_method/blob/master/manage_vcf.rb)
+The workflow used to filter reads can be found in the [Supplementary file 2](https://github.com/pilarcormo/Preprint/blob/master/sup_file2.md) and the protocol is available in the README file deposited at [https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads](https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads). The code used is available at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/manage_vcf.rb](https://github.com/pilarcormo/SNP_distribution_method/blob/master/manage_vcf.rb).
 
 ###2.8. Centromere removal
 
-A great part of the variability observed in the genomes was due to the presence of centromeres. The code at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/remove_cent.rb](https://github.com/pilarcormo/SNP_distribution_method/blob/master/remove_cent.rb) was used to discard the SNP positions that were due to the centremere variability. The workflow used to filter the reads can be found in the [Supplementary file 2](https://github.com/pilarcormo/Preprint/blob/master/sup_file2.md) and a detailed protocol is available in the README file deposited at [https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads](https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads)
+A great part of the variability observed in the genomes was due to the presence of centromeres. The code at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/remove_cent.rb](https://github.com/pilarcormo/SNP_distribution_method/blob/master/remove_cent.rb) was used to discard the SNP positions that were due to the centremere variability. The workflow used to filter the reads can be found in the [Supplementary file 2](https://github.com/pilarcormo/Preprint/blob/master/sup_file2.md) and a detailed protocol is available in the README file deposited at [https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads](https://github.com/pilarcormo/SNP_distribution_method/tree/master/Reads).
 
 ###2.9. SNP density analysis
 
@@ -151,15 +168,15 @@ The output CSV file is available at [https://github.com/pilarcormo/SNP_distribut
 
 We used the R code at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/R_scripts/SNP_filtering.R](https://github.com/pilarcormo/SNP_distribution_method/blob/master/R_scripts/SNP_filtering.R) to plot the total number of homozygous SNPs before filtering, after parental filtering and after centromere removal. 
 
-We plotted the homozygous and heterozygous SNP densities obtained after filtering for each study  together with the ratio signal to identify the high density peaks in the distribution.  The R code was deposited at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/filtering.md](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/filtering.md)
+We plotted the homozygous and heterozygous SNP densities obtained after filtering for each study  together with the ratio signal to identify the high density peaks in the distribution.  The R code was deposited at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/filtering.md](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/filtering.md).
 
 ###2.10. Probability plots
 
-To analyse the correlation of the homozygous SNP density in forward genetic screens to a normal distribution, we created probability plots (QQ-plots).  We used the homozygous SNP positions in the chromosome where the causative mutation was located after parental filtering and centromere removal. The R code and plots are available at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/qqplot.md](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/qqplot.md)
+To analyse the correlation of the homozygous SNP density in forward genetic screens to a normal distribution, we created probability plots (QQ-plots).  We used the homozygous SNP positions in the chromosome where the causative mutation was located after parental filtering and centromere removal. The R code and plots are available at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/qqplot.md](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/qqplot.md).
 
 ###2.11. Distribution shape analysis
 
-We analysed the shape and variance of the normal homozygous SNP distributions. The R code results are available at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/kurtosis.md](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/kurtosis.md)
+We analysed the shape and variance of the normal homozygous SNP distributions. The R code results are available at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/kurtosis.md](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Reads/kurtosis.md).
 
 ###2.12. Analysis of average contig size in different whole genome assemblies 
 Plant genome assemblies at contig level from [http://www.ncbi.nlm.nih.gov/assembly/organism/3193/all/](http://www.ncbi.nlm.nih.gov/assembly/organism/3193/all/) were used to define a more realistic contig size in our model genomes. We analysed all contig assemblies from January 2013 until June 2015 which provided a full genome representation and a genome coverage higher than 1x. Only those providing the sequencing technology and the N50 contig size were selected to analyse the contig size distribution. 
@@ -168,7 +185,7 @@ A table with the chosen assemblies and the results are available at this Github 
 
 We plotted the N50 contig size against the genome size using a different colour for each sequencing technology. Then, we calculated the N50 density and the median of the distribution. The R code can be found at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Contigs/contigs.R](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Contigs/contigs.R). We focused on the 16 assemblies built on Illumina Hiseq data and tried to define a model for the N50 contig size change over genome length. We applied a Generalized Additive Model (GAM) to fit non-parametric smoothers to the data without specifing a particular model. First, we applied logarithms to both N50 size and genome length on the Illumina HiSeq assemblies.
 
-The R code can be found at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Contigs/contigs.R](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Contigs/contigs.R)
+The R code can be found at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/Contigs/contigs.R](https://github.com/pilarcormo/SNP_distribution_method/blob/master/Contigs/contigs.R).
 
 ###2.13. Model genomes based on real SNP densities
 
@@ -176,7 +193,7 @@ We created new model genomes using the homozygous and heterozygous SNP densities
 
 The genomes  were generated by running [https://github.com/pilarcormo/SNP_distribution_method/blob/master/model_genome_real_hpc.rb](https://github.com/pilarcormo/SNP_distribution_method/blob/master/model_genome_real_hpc.rb). The  command instructions are available in the [Supplementary file 2](https://github.com/pilarcormo/Preprint/blob/master/sup_file2.md).
 
-The genomes are available at [https://github.com/pilarcormo/SNP_distribution_method/tree/master/arabidopsis_datasets/No_centromere](https://github.com/pilarcormo/SNP_distribution_method/tree/master/arabidopsis_datasets/No_centromere). They are classified by contig size. The directories contain the following: frags_shuffled.fasta, frags.fasta, hm_snps.txt, ht_snps.txt and snps.vcf
+The genomes are available at [https://github.com/pilarcormo/SNP_distribution_method/tree/master/arabidopsis_datasets/No_centromere](https://github.com/pilarcormo/SNP_distribution_method/tree/master/arabidopsis_datasets/No_centromere). They are classified by contig size. The directories contain the following: `frags_shuffled.fasta`, `frags.fasta`, `hm_snps.txt`, `ht_snps.txt` and `snps.vcf`.
 
 ###2.14. SDM with real SNP densities
 The model genomes generated as described in 2.13 were used to prove the efficiency of SDM for identifying the genomic region carrying the causative mutation. The Ruby code for SDM is available at [https://github.com/pilarcormo/SNP_distribution_method/blob/master/SNP_distribution_method_variation.rb](https://github.com/pilarcormo/SNP_distribution_method/blob/master/SNP_distribution_method_variation.rb). The input and output specification for SDM can be found in the README file in the main project Github repository [https://github.com/pilarcormo/SNP_distribution_method](https://github.com/pilarcormo/SNP_distribution_method). 
@@ -250,11 +267,17 @@ Our prior knowledge about the correct contig order allowed us to define the real
 We could not define a universal cut-off value based on the homozygous to heterozygous ratio for all the different SNP densities and crosses, as sometimes the region with a high ratio was narrow due to a high SNP linkage in the area, while in other cases, the increase in the ratio was progressive, and the peak was wider. Therefore, when we worked with real densities, we used an automatic approach that tailors the threshold for each specific SNP density and contig length as explained in section 2.14. **Table 3** shows the tailored thresholds and total discarded contigs for all the datsets.
 
 We can conclude that SDM is a rapid and precise method to perform bulked-segregant linkage analysis from back-crossed and out-crossed populations without relying on the availability of a reference genome, specially effective on contig sizes over 5 kb. Even though it can be accurate with smaller contigs, we defined the detection limit on 2-4 kb contigs. In 2 out of the 5 models, the contig carrying the candidate mutation was lost when the contig size oscillated between 2 and 4 kb.
+
+\newpage
  
-Conclusions
+4. Conclusions
 ===
 
-Forward genetic screens are very useful to identify genes responsible for particular phenotypes. Due to the advances in HTS technologies, mutant genome sequencing has become quick and inexpensive. However, mapping-by-sequencing methods available present certain limitations, complicating the mutation identification especially in non-sequenced species. To target this problem, we proposed a fast, reference genome independent method to identify causative mutations. We showed that homozygous SNPs are normally distributed in the mutant genome of back-cross and out-crossed individuals. Based on that idea, we defined a theoretical SNP distribution used by SDM to identify the genomic region where the causative mutation was located. By using customised model genomes we could rapidly alter different parameters to tune the detection method. SDM was optimised for *Arabidopsis* and it was able to identify the contigs carrying the causative mutations in four independent forward genetic screens. We conclude that SDM is especially sucessful to identify the  genomic region carrying mutation in back-crossed and out-crossed populations, especially when the contig size is over 2 kb. The increase in the SNP density in out-cross experiments increased the number of candidate contigs. We hope to reproduce the good results obtained for *Arabidopsis* in other organisms. Then, we aim apply SDM in forward genetics screens of species where a reference genome is not yet available. We plan to develop an accessible software that will speed up gene finding in non-sequenced organisms. Ideally, over the next few years, sequencing costs will decrease and this will allow to sequence every mutant individual from a forward genetic screen. Therefore, we need fast and reliable methods to identify variants bypassing the reference genome assembly step. 
+Forward genetic screens are very useful to identify genes responsible for particular phenotypes. Due to the advances in HTS technologies, mutant genome sequencing has become quick and inexpensive. However, mapping-by-sequencing methods available present certain limitations, complicating the mutation identification especially in non-sequenced species. To target this problem, we proposed a fast, reference genome independent method to identify causative mutations. We showed that homozygous SNPs are normally distributed in the mutant genome of back-crossed and out-crossed individuals. Based on that idea, we defined a theoretical SNP distribution used by SDM to identify the genomic region where the causative mutation was located. 
+
+By using customised model genomes we could rapidly alter different parameters to tune the detection method. SDM was optimised for *Arabidopsis thaliana* and it was able to identify the contigs carrying the causative mutations in four independent forward genetic screens. We conclude that SDM is especially sucessful to identify the  genomic region carrying a mutation when the contig size is over 2 kb. Event though the raise in the SNP density in out-crossed experiments increased the number of candidate contigs, we were able to obtain the contig carrying the causative mutation.  We hope to reproduce the good results obtained for *Arabidopsis thaliana* in other organisms. Then, we aim to apply SDM in forward genetic screens of species where a reference genome is not yet available. We plan to develop an accessible software that will speed up gene finding in non-sequenced organisms. 
+
+Over the next few years, the decrease in sequencing costs will ideally allow to sequence every mutant individual from a forward genetic screen. Hence, we need fast and reliable methods to identify variants bypassing the reference genome assembly step. 
 
 \newpage
 
@@ -283,11 +306,11 @@ sup#1|Ws-0|x|Col-0|Ratio of homozygous|4|SGT1b
 
 Sample|SNPs|Chr|r2|SD (Mb)|Kurtosis|Skewness
 -----|-----|-----|-----|-----|-----|-----:
-OCF2|151|2|0.949|6.01|1.85|-0.392
-BCF2|15|3|0.959|3.20|2.02|0.201
-mob1|25|5|0.944|7.20|2.69|-0.240
-mob2|41|5|0.894|3.71|2.37|0.445
-sup#1|4633|4|0.976|3.66|3.50|0.370  
+OCF2|151|2|0.942|6.01|1.85|-0.392
+BCF2|15|3|0.946|3.20|2.02|0.201
+mob1|25|5|0.935|7.20|2.69|-0.240
+mob2|41|5|0.922|3.71|2.37|0.445
+sup#1|4633|4|0.978|3.66|3.50|0.370  
 
 
 
@@ -428,7 +451,7 @@ Figure 7
 \newpage
 
 
-4. References
+References
 ====
 
 
